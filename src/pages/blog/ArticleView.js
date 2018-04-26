@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import TwoColumnRightBody from "../../components/layout/TwoColumnRightBody";
-import ArticleNavigation from "../../components/layout/ArticleNavigation";
+import BlogPostNavigation from "../../components/BlogPostNavigation";
 import BlogPost from "../../components/BlogPost";
-import BlogSidebar from "../../components/layout/BlogSidebar";
+import BlogSidebar from "../../components/BlogSidebar";
 
 import mockPosts from "../../config/mockPosts.json";
 
@@ -18,7 +18,7 @@ const Page = ({ match }) => {
   const post = fetchPost(match.params.articleId);
 
   return (<TwoColumnRightBody id="main-content-section" side={<BlogSidebar topAnchor="app-header:bottom" bottomAnchor="app-footer:top" />}>
-    <ArticleNavigation prevLink={post.prev} nextLink={post.next} />
+    <BlogPostNavigation prevLink={post.prev} nextLink={post.next} />
     {post && (<BlogPost key={post._id} _id={post._id} {...post.content} />)}
   </TwoColumnRightBody>);
 };

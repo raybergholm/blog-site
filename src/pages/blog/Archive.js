@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import TwoColumnRightBody from "../../components/layout/TwoColumnRightBody";
-import BlogSidebar from "../../components/layout/BlogSidebar";
+import BlogSidebar from "../../components/BlogSidebar";
 
 const Page = ({match}) => (
   <TwoColumnRightBody id="main-content-section" side={<BlogSidebar topAnchor="app-header:bottom" bottomAnchor="app-footer:top" />}>

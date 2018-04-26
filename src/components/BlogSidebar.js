@@ -5,10 +5,10 @@ import QuickLinksMenu from "./sidebar/QuickLinksMenu";
 import ArchiveMenu from "./sidebar/ArchiveMenu";
 import SearchPanel from "./sidebar/SearchPanel";
 
-import { Sticky } from "../foundation/Foundation";
+import { Sticky } from "./foundation/Foundation";
 
-import quickLinks from "../../config/quickLinks.json";
-import archiveLinks from "../../config/archiveLinks.json";
+import quickLinks from "../config/quickLinks.json";
+import archiveLinks from "../config/archiveLinks.json";
 
 const buildStickyConfig = ({topAnchor, bottomAnchor}) => ({
   "data-options": "marginTop:4;",

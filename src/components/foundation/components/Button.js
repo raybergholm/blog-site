@@ -87,7 +87,7 @@ Button.propTypes = {
   action: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.object
-  ]).isRequired,
+  ]),
   children: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.array

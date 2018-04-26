@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Row, Cell, Button, BUTTON_MODES } from "../foundation/Foundation";
+import { Row, Cell, Button, BUTTON_MODES } from "./foundation/Foundation";
 
 const redirectPage = (postId) => {
   if (postId) {
@@ -9,7 +9,7 @@ const redirectPage = (postId) => {
   }
 };
 
-const ArticleNavigation = ({ prevLink, nextLink }) => (
+const BlogPostNavigation = ({ prevLink, nextLink }) => (
   <Row>
     <Cell small={2}>
       <Button mode={BUTTON_MODES.Button} action={prevLink ? () => redirectPage(prevLink) : null} expanded disabled={!prevLink}>
@@ -25,9 +25,9 @@ const ArticleNavigation = ({ prevLink, nextLink }) => (
   </Row>
 );
 
-export default ArticleNavigation;
+export default BlogPostNavigation;
 
-ArticleNavigation.propTypes = {
+BlogPostNavigation.propTypes = {
   nextLink: PropTypes.string,
   prevLink: PropTypes.string
 };

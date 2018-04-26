@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import TwoColumnRightBody from "../../components/layout/TwoColumnRightBody";
 import BlogPost from "../../components/BlogPost";
-import BlogSidebar from "../../components/layout/BlogSidebar";
+import BlogSidebar from "../../components/BlogSidebar";
 
 import mockPosts from "../../config/mockPosts.json";
 
