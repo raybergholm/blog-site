@@ -1,9 +1,13 @@
 [{
-    "text": "Hello world",
-    "link": "/blog/article/1"
-},
-{
-    "text": "This loops back to itself",
-    "link": "#"
-}
+        "text": "About",
+        "link": "/about"
+    },
+    {
+        "text": "Hello world",
+        "link": "/article/1"
+    },
+    {
+        "text": "This loops back to itself",
+        "link": "#"
+    }
 ]

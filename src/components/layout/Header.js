@@ -2,15 +2,7 @@ import React from "react";
 
 import { Sticky } from "../foundation/Foundation";
 
-import Navbar from "./Navbar";
 import Banner from "./Banner";
-
-import navbarItems from "../../config/navbarItems.json";
-
-const brand = {
-  text: "Hi",
-  menuText: true
-};
 
 const stickyBarStyle = {
   width: "100%"
@@ -29,16 +21,12 @@ const stickyConfig = {
   "data-top-anchor": "1"
 };
 
-const banner = () => (
-  <Banner id="app-header-banner" style={bannerStyle}>
-    <span>mostly normal.</span>
-  </Banner>
-);
-
 const Header = () => (
   <header id="app-header" data-sticky-container>
     <Sticky style={stickyBarStyle} {...stickyConfig}>
-      <Navbar brand={brand} items={navbarItems} />
+      <Banner id="app-header-banner" style={bannerStyle}>
+        <span>mostly normal.</span>
+      </Banner>
     </Sticky>
   </header>
 );

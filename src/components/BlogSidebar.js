@@ -20,7 +20,7 @@ const BlogSidebar = (props) => (
   <menu data-sticky-container>
     <Sticky {...buildStickyConfig(props)}>
       <SearchPanel action={null} />
-      <QuickLinksMenu items={quickLinks} />
+      <QuickLinksMenu title="Quick Links" items={quickLinks} />
       <ArchiveMenu items={archiveLinks} />
     </Sticky>
   </menu>

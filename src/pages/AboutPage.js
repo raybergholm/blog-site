@@ -1,6 +1,7 @@
 import React from "react";
 
 import OneColumnBody from "../components/layout/OneColumnBody";
+import Footer from "../components/layout/Footer";
 
 import ContactLinks from "./ContactLinks";
 import ContactForm from "../components/ContactForm";
@@ -25,13 +26,16 @@ const onSubmit = () => {
 };
 
 const Page = () => (
-  <OneColumnBody>
-    
-    <p>I am the about page</p>
+  <div>
+    <OneColumnBody>
 
-    <ContactLinks />
-    <ContactForm _id="portfolioContactForm" labels={contactFormLabels} placeholders={contactFormPlaceholders} submitAction={onSubmit} />
-  </OneColumnBody>
+      <p>I am the about page</p>
+
+      <ContactLinks />
+      <ContactForm _id="portfolioContactForm" labels={contactFormLabels} placeholders={contactFormPlaceholders} submitAction={onSubmit} />
+    </OneColumnBody>
+    <Footer />
+  </div>
 );
 
 export default Page;
