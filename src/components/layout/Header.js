@@ -10,10 +10,10 @@ const stickyBarStyle = {
 
 const bannerStyle = {
   height: "200px",
-  "font-family": "\"Courier New\", Courier, monospace",
-  "text-align": "center",
-  "vertical-align": "middle",
-  "line-height": "normal"
+  fontFamily: "\"Courier New\", Courier, monospace",
+  textAlign: "center",
+  verticalAlign: "middle",
+  lineHeight: "normal"
 };
 
 const stickyConfig = {

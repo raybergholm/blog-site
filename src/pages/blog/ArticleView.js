@@ -17,7 +17,7 @@ const fetchPost = (articleId) => {
 const Page = ({ match }) => {
   const post = fetchPost(match.params.articleId);
 
-  return (<TwoColumnRightBody id="main-content-section" side={<BlogSidebar topAnchor="app-header:bottom" bottomAnchor="app-footer:top" />}>
+  return (<TwoColumnRightBody id="main-content-section" side={<BlogSidebar topAnchor="app-header-banner:bottom" bottomAnchor="app-footer:top" />}>
     <BlogPostNavigation prevLink={post.prev} nextLink={post.next} />
     {post && (<BlogPost key={post._id} _id={post._id} {...post.content} />)}
   </TwoColumnRightBody>);

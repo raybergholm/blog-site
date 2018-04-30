@@ -10,11 +10,21 @@ import { Sticky } from "./foundation/Foundation";
 import quickLinks from "../config/quickLinks.json";
 import archiveLinks from "../config/archiveLinks.json";
 
-const buildStickyConfig = ({topAnchor, bottomAnchor}) => ({
-  "data-options": "marginTop:4;",
-  "data-top-anchor": topAnchor,
-  "data-bottom-anchor": bottomAnchor
-});
+const buildStickyConfig = ({ topAnchor, bottomAnchor }) => {
+  const config = {
+    "data-options": "marginTop:4;",
+  };
+
+  if (topAnchor) {
+    config["data-top-anchor"] = topAnchor;
+  }
+
+  if (bottomAnchor) {
+    config["data-bottom-anchor"] = bottomAnchor;
+  }
+
+  return config;
+};
 
 const BlogSidebar = (props) => (
   <menu data-sticky-container>

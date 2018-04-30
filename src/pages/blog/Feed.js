@@ -12,7 +12,7 @@ const fetchMainContent = () => {
 };
 
 const Page = () => (
-  <TwoColumnRightBody id="main-content-section" side={<BlogSidebar topAnchor="app-header:bottom" bottomAnchor="app-footer:top" />}>
+  <TwoColumnRightBody id="main-content-section" side={<BlogSidebar topAnchor="app-header-banner:bottom" bottomAnchor="app-footer:top" />}>
     {fetchMainContent()}
   </TwoColumnRightBody>
 );
