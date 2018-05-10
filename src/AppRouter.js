@@ -3,9 +3,9 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 import AboutPage from "./pages/AboutPage";
 
-import BlogFeedPage from "./pages/blog/Feed";
-import BlogArchivePage from "./pages/blog/Archive";
-import BlogArticlePage from "./pages/blog/ArticleView";
+import BlogFeedPage from "./pages/Feed";
+import BlogArchivePage from "./pages/Archive";
+import BlogArticlePage from "./pages/ArticleView";
 
 const AppRouter = () => (
   <BrowserRouter>

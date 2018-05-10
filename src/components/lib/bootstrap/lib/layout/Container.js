@@ -23,6 +23,8 @@ const Container = ({ children, ...props }) => (
   </div>
 );
 
+export default Container;
+
 Container.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.object,

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { GridContainer, Row, Cell } from "../components/foundation/Foundation";
+import { Container, Row, Col } from "../components/lib/bootstrap";
 
 const handleSubmit = (state, submitAction) => {
   console.log("ContactForm state: ", state);
@@ -13,20 +13,20 @@ const handleSubmit = (state, submitAction) => {
 
 const ContactForm = ({ _id, labels, placeholders, submitAction }) => (
   <form onSubmit={handleSubmit(this.state, submitAction)}>
-    <GridContainer id={`contactform-${_id}`}>
+    <Container id={`contactform-${_id}`}>
       <Row margin>
-        <Cell large={6}>
+        <Col large={6}>
           <label>
             {labels.name}
             <input id={`contactform-${_id}-name`} type="text" placeholder={placeholders.name} />
           </label>
-        </Cell>
-        <Cell large={6}>
+        </Col>
+        <Col large={6}>
           <label>
             {labels.email}
             <input id={`contactform-${_id}-email`} type="text" placeholder={placeholders.email} />
           </label>
-        </Cell>
+        </Col>
       </Row>
       <label>
         {labels.subject}
@@ -38,7 +38,7 @@ const ContactForm = ({ _id, labels, placeholders, submitAction }) => (
       </label>
       <hr />
       <input type="submit" className="button" value={labels.buttonText} />
-    </GridContainer>
+    </Container>
   </form>
 );
 
