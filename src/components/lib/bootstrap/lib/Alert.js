@@ -3,13 +3,13 @@ import PropTypes from "prop-types";
 
 import { generateClassName } from "../utils/classNames";
 
-const buildClassName = ({ style, dismissable, extras }) => {
+const buildClassName = ({ bootstrapStyle, dismissable, extras }) => {
   const tokens = [];
 
   tokens.push("alert");
 
-  if (style) {
-    tokens.push(`alert-${style}`);
+  if (bootstrapStyle) {
+    tokens.push(`alert-${bootstrapStyle}`);
   }
 
   if (dismissable) {
@@ -27,8 +27,8 @@ const buildClassName = ({ style, dismissable, extras }) => {
   return generateClassName(tokens);
 };
 
-const Alert = ({ children, dismissable, ...props }) => (
-  <div className={buildClassName({ dismissable, ...props })} role="alert">
+const Alert = ({ id, style, children, dismissable, ...props }) => (
+  <div id={id || null} style={style || null} className={buildClassName({ dismissable, ...props })} role="alert">
     {children}
     {dismissable && (
       <button type="button" className="close" data-dismiss="alert" aria-label="Close">
@@ -45,5 +45,7 @@ Alert.propTypes = {
     PropTypes.object,
     PropTypes.array
   ]),
-  dismissable: PropTypes.bool
+  dismissable: PropTypes.bool,
+  id: PropTypes.string,
+  style: PropTypes.object
 };

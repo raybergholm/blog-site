@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 
 import Container from "./layout/Container";
 
-const Jumbotron = ({ children, fluid }) => {
+const Jumbotron = ({ id, style, children, fluid }) => {
   let component;
 
   if (fluid) {
     component = (
-      <div className="jumbotron jumbotron-fluid">
+      <div id={id || null} style={style || null} className="jumbotron jumbotron-fluid">
         <Container>
           {children}
         </Container>
@@ -16,7 +16,7 @@ const Jumbotron = ({ children, fluid }) => {
     );
   } else {
     component = (
-      <div className="jumbotron">
+      <div id={id || null} style={style || null} className="jumbotron">
         {children}
       </div>
     );
@@ -32,5 +32,7 @@ Jumbotron.propTypes = {
     PropTypes.object,
     PropTypes.array
   ]),
-  fluid: PropTypes.bool
+  fluid: PropTypes.bool,
+  id: PropTypes.string,
+  style: PropTypes.object
 };

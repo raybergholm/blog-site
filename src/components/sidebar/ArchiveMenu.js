@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Menu } from "../foundation/Foundation";
+import { ListGroup } from "../lib/bootstrap/react-bootstrap";
 
 const ArchiveMenu = ({ items }) => (
   <menu className="archive-menu">
     <h4>Archives</h4>
-    <Menu items={items} vertical={true} />
+    <ListGroup items={items} />
   </menu>
 );
 

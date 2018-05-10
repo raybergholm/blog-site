@@ -17,8 +17,8 @@ const buildClassName = ({ fluid, extras }) => {
   return generateClassName(tokens);
 };
 
-const Container = ({ children, ...props }) => (
-  <div className={buildClassName(props)}>
+const Container = ({ id, style, children, ...props }) => (
+  <div id={id || null} style={style || null} className={buildClassName(props)}>
     {children}
   </div>
 );
@@ -29,5 +29,7 @@ Container.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.array
-  ])
+  ]),
+  id: PropTypes.string,
+  style: PropTypes.object
 };

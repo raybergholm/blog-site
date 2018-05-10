@@ -5,7 +5,7 @@ import QuickLinksMenu from "./sidebar/QuickLinksMenu";
 import ArchiveMenu from "./sidebar/ArchiveMenu";
 import SearchPanel from "./sidebar/SearchPanel";
 
-import { Sticky } from "./foundation/Foundation";
+import { Sticky } from "./lib/bootstrap/react-bootstrap";
 
 import quickLinks from "../config/quickLinks.json";
 import archiveLinks from "../config/archiveLinks.json";

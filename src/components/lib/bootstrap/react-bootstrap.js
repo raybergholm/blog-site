@@ -7,6 +7,8 @@ import Row from "./lib/layout/Row";
 import Badge from "./lib/Badge";
 import Button from "./lib/Button";
 import Jumbotron from "./lib/Jumbotron";
+import ListGroup from "./lib/ListGroup";
+import ListGroupItem from "./lib/ListGroupItem";
 import Sticky from "./lib/Sticky";
 
 // consts and helpers
@@ -28,6 +30,8 @@ export {
   ColBreak,
   Container,
   Jumbotron,
+  ListGroup,
+  ListGroupItem,
   Row,
   Sticky
 };

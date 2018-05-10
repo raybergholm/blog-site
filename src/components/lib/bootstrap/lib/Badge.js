@@ -3,13 +3,13 @@ import PropTypes from "prop-types";
 
 import { generateClassName } from "../utils/classNames";
 
-const buildClassName = ({ style, pill, extras }) => {
+const buildClassName = ({ bootstrapStyle, pill, extras }) => {
   const tokens = [];
 
   tokens.push("badge");
 
-  if (style) {
-    tokens.push(`badge-${style}`);
+  if (bootstrapStyle) {
+    tokens.push(`badge-${bootstrapStyle}`);
   }
 
   if (pill) {
@@ -25,13 +25,13 @@ const buildClassName = ({ style, pill, extras }) => {
   return generateClassName(tokens);
 };
 
-const Badge = ({ link, children, ...props }) => {
+const Badge = ({ id, style, children, link, ...props }) => {
   if (link) {
-    return (<a href={link} className={buildClassName(props)}>
+    return (<a id={id || null} style={style || null} href={link} className={buildClassName(props)}>
       {children}
     </a>);
   } else {
-    return (<span className={buildClassName(props)}>
+    return (<span id={id || null} style={style || null} className={buildClassName(props)}>
       {children}
     </span>);
   }
@@ -44,5 +44,7 @@ Badge.propTypes = {
     PropTypes.object,
     PropTypes.array
   ]),
-  link: PropTypes.string
+  id: PropTypes.string,
+  link: PropTypes.string,
+  style: PropTypes.object
 };

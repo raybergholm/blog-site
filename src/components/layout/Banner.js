@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Callout } from "../foundation/Foundation";
+import { Jumbotron } from "../lib/bootstrap/react-bootstrap";
 
 const Banner = ({ id, style, children }) => (
-  <Callout id={id || null} style={style || null}>
+  <Jumbotron id={id || null} style={style || null}>
     {children}
-  </Callout>
+  </Jumbotron>
 );
 
 export default Banner;

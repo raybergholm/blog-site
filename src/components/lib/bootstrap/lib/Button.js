@@ -46,13 +46,13 @@ const buildClassName = ({ style, size, outline, block, active, disabled, extras 
   return generateClassName(tokens);
 };
 
-const Button = ({ type, children, action, disabled, ...props }) => {
+const Button = ({ id, style, children, type, action, disabled, ...props }) => {
   let component;
 
   switch (type) {
     case BUTTON_TYPES.Button:
       component = (
-        <button type="button" onClick={action} disabled={disabled || null} className={buildClassName({ disabled, ...props })}>
+        <button id={id || null} style={style || null} type="button" onClick={action} disabled={disabled || null} className={buildClassName({ disabled, ...props })}>
           {children}
         </button>
       );
@@ -64,7 +64,7 @@ const Button = ({ type, children, action, disabled, ...props }) => {
     //   break;
     case BUTTON_TYPES.Link:
       component = (
-        <a>
+        <a id={id || null} style={style || null}>
           {children}
         </a>
       );
@@ -87,6 +87,8 @@ Button.propTypes = {
     PropTypes.object,
     PropTypes.array
   ]),
+  id: PropTypes.string,
   disabled: PropTypes.bool,
+  style: PropTypes.style,
   type: PropTypes.string.isRequired
 };

@@ -40,8 +40,8 @@ const buildClassName = ({ xsmall, small, medium, large, xlarge, extras }) => {
   return generateClassName(tokens);
 };
 
-const Col = ({ children, ...props }) => (
-  <div className={buildClassName(props)}>
+const Col = ({ id, style, children, ...props }) => (
+  <div id={id || null} style={style || null} className={buildClassName(props)}>
     {children}
   </div>
 );
@@ -52,5 +52,7 @@ Col.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.array
-  ])
+  ]),
+  id: PropTypes.string,
+  style: PropTypes.object
 };

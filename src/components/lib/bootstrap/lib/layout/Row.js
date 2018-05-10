@@ -29,8 +29,8 @@ const buildClassName = ({ align, alignBy, justify, noGutters, extras }) => {
   return generateClassName(tokens);
 };
 
-const Row = ({ children, ...props }) => (
-  <div className={buildClassName(props)}>
+const Row = ({ id, style, children, ...props }) => (
+  <div id={id || null} style={style || null} className={buildClassName(props)}>
     {children}
   </div>
 );
@@ -41,5 +41,7 @@ Row.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.array
-  ])
+  ]),
+  id: PropTypes.string,
+  style: PropTypes.object
 };

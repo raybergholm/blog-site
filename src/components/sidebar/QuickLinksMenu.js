@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Menu } from "../foundation/Foundation";
+import { ListGroup } from "../lib/bootstrap/react-bootstrap";
 
 const QuickLinksMenu = ({ title, items }) => (
   <menu className="quicklinks-menu">
     <h4>{title}</h4>
-    <Menu items={items} vertical={true} />
+    <ListGroup items={items} />
   </menu>
 );
 

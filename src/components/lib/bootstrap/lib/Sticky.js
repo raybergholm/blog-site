@@ -17,8 +17,8 @@ const buildClassName = ({ extras }) => {
   return generateClassName(tokens);
 };
 
-const Sticky = ({ topAnchor, bottomAnchor, children, ...props }) => (
-  <div>
+const Sticky = ({ id, style, children, topAnchor, bottomAnchor, ...props }) => (
+  <div id={id || null} style={style || null} className={buildClassName(props)}>
     {children}
   </div>
 );
@@ -31,5 +31,7 @@ Sticky.propTypes = {
     PropTypes.object,
     PropTypes.array
   ]),
+  id: PropTypes.string,
+  style: PropTypes.object,
   topAnchor: PropTypes.string
 };
