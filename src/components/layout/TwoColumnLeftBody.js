@@ -1,19 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { GridContainer, Cell, Row } from "../foundation/Foundation";
+import { Container, Row, Col } from "../lib/bootstrap/react-bootstrap";
 
 const Body = ({ id, style, children, side, ...others }) => (
-  <GridContainer id={id || null} style={style || null} {...others}>
+  <Container id={id || null} style={style || null} {...others}>
     <Row {...others}>
-      <Cell medium={2} large={3}>
+      <Col medium={2} large={3}>
         {side}
-      </Cell>
-      <Cell small={12} medium={9} large={9}>
+      </Col>
+      <Col small={12} medium={9} large={9}>
         {children}
-      </Cell>
+      </Col>
     </Row>
-  </GridContainer>
+  </Container>
 );
 
 Body.propTypes = {

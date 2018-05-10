@@ -4,8 +4,10 @@ import ColBreak from "./lib/layout/ColBreak";
 import Container from "./lib/layout/Container";
 import Row from "./lib/layout/Row";
 
+import Badge from "./lib/Badge";
 import Button from "./lib/Button";
 import Jumbotron from "./lib/Jumbotron";
+import Sticky from "./lib/Sticky";
 
 // consts and helpers
 
@@ -20,10 +22,12 @@ export {
 };
 
 export {
+  Badge,
   Button,
   Col,
   ColBreak,
   Container,
   Jumbotron,
-  Row
+  Row,
+  Sticky
 };

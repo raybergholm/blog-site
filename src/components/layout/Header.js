@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Sticky } from "../foundation/Foundation";
+import { Sticky } from "../lib/bootstrap/react-bootstrap";
 
 import Banner from "./Banner";
 

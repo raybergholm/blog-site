@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Label } from "./foundation/Foundation";
+import { Badge } from "./lib/bootstrap/react-bootstrap";
 
 import Showdown from "showdown";
 
@@ -24,7 +24,7 @@ const BlogPost = ({ _id, title, timestamp, author, tags, body }) => {
       <div dangerouslySetInnerHTML={{ __html: parseText(body) }} />
       <div>
         <small>Tags:</small>
-        {tags.map((tag, index) => <Label key={index} text={tag} />)}
+        {tags.map((tag, index) => <Badge key={index}>{tag}</Badge>)}
       </div>
       <hr />
     </article>

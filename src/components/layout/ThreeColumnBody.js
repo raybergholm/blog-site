@@ -1,16 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { GridContainer, Cell, Row } from "../foundation/Foundation";
+import { Container, Row, Col } from "../lib/bootstrap/react-bootstrap";
 
 const Body = ({ id, style, children, left, right, ...others }) => (
-  <GridContainer id={id || null} style={style || null} {...others}>
+  <Container id={id || null} style={style || null} {...others}>
     <Row {...others}>
-        <Cell medium={2} large={3}>{left}</Cell>
-        <Cell small={12} medium={8} large={6}>{children}</Cell>
-        <Cell medium={2} large={3}>{right}</Cell>
+        <Col medium={2} large={3}>{left}</Col>
+        <Col small={12} medium={8} large={6}>{children}</Col>
+        <Col medium={2} large={3}>{right}</Col>
     </Row>
-  </GridContainer>
+  </Container>
 );
 
 Body.propTypes = {
