@@ -44,5 +44,5 @@ Badge.propTypes = {
     PropTypes.object,
     PropTypes.array
   ]),
-  dismissable: PropTypes.bool
+  link: PropTypes.string
 };
