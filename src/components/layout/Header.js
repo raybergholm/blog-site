@@ -25,7 +25,7 @@ const Header = () => (
   <header id="app-header" data-sticky-container>
     <Sticky style={stickyBarStyle} {...stickyConfig}>
       <Banner id="app-header-banner" style={bannerStyle}>
-        <span>mostly normal.</span>
+        <span>A touch of saudade</span>
       </Banner>
     </Sticky>
   </header>
