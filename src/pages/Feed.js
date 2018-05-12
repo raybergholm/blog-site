@@ -3,10 +3,15 @@ import PropTypes from "prop-types";
 
 import BlogPost from "../components/BlogPost";
 
-import mockPosts from "../config/mockPosts.json";
+import { listBlogPosts } from "../scripts/dataApi";
 
-const fetchMainContent = () => {
-  return mockPosts.map((post) => (<BlogPost key={post._id} _id={post._id} {...post.content} />));
+const createBlogPost = (post) => (
+  <BlogPost key={post._id} _id={post._id} {...post.content} />
+);
+
+const fetchMainContent = async () => {
+  return await listBlogPosts({})
+    .then((posts) => posts.map(createBlogPost));
 };
 
 const Page = () => (
