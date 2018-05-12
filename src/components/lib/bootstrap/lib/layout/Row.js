@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { generateClassName } from "../utils/classNames";
+import { generateClassName } from "../../utils/classNames";
 
 const buildClassName = ({ align, alignBy, justify, noGutters, extras }) => {
   const tokens = [];

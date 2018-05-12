@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import BlogPostNavigation from "../../components/BlogPostNavigation";
-import BlogPost from "../../components/BlogPost";
+import BlogPostNavigation from "../components/BlogPostNavigation";
+import BlogPost from "../components/BlogPost";
 
-import mockPosts from "../../config/mockPosts.json";
+import mockPosts from "../config/mockPosts.json";
 
 const fetchPost = (articleId) => {
   const result = mockPosts.filter(({ _id }) => _id === articleId);

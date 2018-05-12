@@ -5,9 +5,9 @@ import Container from "./lib/layout/Container";
 import Row from "./lib/layout/Row";
 
 import Badge from "./lib/Badge";
-import Button from "./lib/Button";
+import Button, { BUTTON_SIZE, BUTTON_TYPE } from "./lib/Button";
 import Jumbotron from "./lib/Jumbotron";
-import ListGroup from "./lib/ListGroup";
+import ListGroup, { LIST_GROUP_TYPE } from "./lib/ListGroup";
 import ListGroupItem from "./lib/ListGroupItem";
 import Sticky from "./lib/Sticky";
 
@@ -17,6 +17,9 @@ import { ROW_ALIGN_DIRECTION, ROW_ALIGN_TYPE, ROW_JUSTIFY } from "./lib/layout/f
 import { SCREEN_SIZES } from "./lib/layout/responsiveBreakpoints";
 
 export {
+  BUTTON_SIZE,
+  BUTTON_TYPE,
+  LIST_GROUP_TYPE,
   ROW_ALIGN_DIRECTION,
   ROW_ALIGN_TYPE,
   ROW_JUSTIFY,

@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import BlogPost from "../../components/BlogPost";
+import BlogPost from "../components/BlogPost";
 
-import mockPosts from "../../config/mockPosts.json";
+import mockPosts from "../config/mockPosts.json";
 
 const fetchMainContent = () => {
   return mockPosts.map((post) => (<BlogPost key={post._id} _id={post._id} {...post.content} />));

@@ -3,24 +3,24 @@ import PropTypes from "prop-types";
 
 import { generateClassName } from "../utils/classNames";
 
-export const BUTTON_TYPES = {
+export const BUTTON_TYPE = {
   Button: "button",
   // Input: "input",
   Link: "link"
 };
 
-export const BUTTON_SIZES = {
+export const BUTTON_SIZE = {
   Small: "btn-sm",
   Large: "btn-large"
 };
 
-const buildClassName = ({ style, size, outline, block, active, disabled, extras }) => {
+const buildClassName = ({ bootstrapStyle, size, outline, block, active, disabled, extras }) => {
   const tokens = [];
 
   tokens.push("btn");
 
-  if (style) {
-    tokens.push(`btn-${outline ? "outline-" : ""}${style}`);
+  if (bootstrapStyle) {
+    tokens.push(`btn-${outline ? "outline-" : ""}${bootstrapStyle}`);
   }
 
   if (size) {
@@ -50,7 +50,7 @@ const Button = ({ id, style, children, type, action, disabled, ...props }) => {
   let component;
 
   switch (type) {
-    case BUTTON_TYPES.Button:
+    case BUTTON_TYPE.Button:
       component = (
         <button id={id || null} style={style || null} type="button" onClick={action} disabled={disabled || null} className={buildClassName({ disabled, ...props })}>
           {children}
@@ -62,7 +62,7 @@ const Button = ({ id, style, children, type, action, disabled, ...props }) => {
     //     <input className="btn btn-primary" type="button" value="Input" />
     //   );
     //   break;
-    case BUTTON_TYPES.Link:
+    case BUTTON_TYPE.Link:
       component = (
         <a id={id || null} style={style || null}>
           {children}

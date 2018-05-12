@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Container, Row, Col } from "../components/lib/bootstrap";
+import { Container, Row, Col } from "./lib/bootstrap/react-bootstrap";
 
 const handleSubmit = (state, submitAction) => {
   console.log("ContactForm state: ", state);

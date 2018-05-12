@@ -1,14 +1,28 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import ListGroupItem from "./ListGroupItem";
-
 import { generateClassName } from "../utils/classNames";
 
-const buildClassName = ({ extras }) => {
+import { LIST_GROUP_TYPE } from "./ListGroup";
+
+const buildClassName = ({ bootstrapStyle, active, disabled, action, extras }) => {
   const tokens = [];
 
-  tokens.push("sticky");
+  tokens.push("list-group-item");
+
+  if (bootstrapStyle) {
+    tokens.push(`list-group-item-${bootstrapStyle}`);
+  }
+
+  if(active){
+    tokens.push("active");
+  }else if(disabled){
+    tokens.push("disabled");
+  }
+
+  if(action){
+    tokens.push("list-group-item-action");
+  }
 
   if (extras) {
     for (const extra of extras) {
@@ -19,25 +33,35 @@ const buildClassName = ({ extras }) => {
   return generateClassName(tokens);
 };
 
-const ListGroupItem = ({ items, ...props }) => (
-  <div className={buildClassName(props)}>
-    {items.map(({ link, text, ...others }, index) => (<MenuItem key={index} link={link} text={text} {...others} />))}
-  </div>
-);
-
-const Menu = ({ id, style, items, ...others }) => (
-  <ul id={id || null} style={style|| null} className={buildClassName(others)}>
-    {items.map(({ link, text, ...others }, index) => (<MenuItem key={index} link={link} text={text} {...others} />))}
-  </ul>
-);
+const ListGroupItem = ({ id, style, children, listType = LIST_GROUP_TYPE.Standard, data, ...props }) => {
+  switch(listType){
+    case LIST_GROUP_TYPE.Standard:
+    return (<li className={buildClassName(props)}>
+      {children}
+      </li>);
+    case LIST_GROUP_TYPE.Link:
+      return (<a className={buildClassName(props)}>
+        {children}
+      </a>);
+    case LIST_GROUP_TYPE.Button:
+    return (<button type="button" className={buildClassName(props)}>
+        {children}
+      </button>);
+  }
+};
 
 export default ListGroupItem;
 
 ListGroupItem.propTypes = {
-  bottomAnchor: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.array
   ]),
-  topAnchor: PropTypes.string
+  id: PropTypes.string,
+  listType: PropTypes.string,
+  style: PropTypes.object,
+  template: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.array
+  ])
 };
