@@ -1,13 +1,13 @@
 [{
         "text": "About",
-        "link": "/about"
+        "linkUrl": "/about"
     },
     {
         "text": "Hello world",
-        "link": "/article/1"
+        "linkUrl": "/article/1"
     },
     {
         "text": "This loops back to itself",
-        "link": "#"
+        "linkUrl": "#"
     }
 ]
