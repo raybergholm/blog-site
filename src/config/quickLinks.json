@@ -4,7 +4,7 @@
     },
     {
         "text": "Hello world",
-        "linkUrl": "/article/1"
+        "linkUrl": "/post/1"
     },
     {
         "text": "This loops back to itself",
