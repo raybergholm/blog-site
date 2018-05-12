@@ -18,7 +18,6 @@ import { SCREEN_SIZES } from "./lib/layout/responsiveBreakpoints";
 export {
   BUTTON_SIZE,
   BUTTON_TYPE,
-  LIST_GROUP_TYPE,
   ROW_ALIGN_DIRECTION,
   ROW_ALIGN_TYPE,
   ROW_JUSTIFY,
