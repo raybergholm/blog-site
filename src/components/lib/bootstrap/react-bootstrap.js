@@ -7,8 +7,7 @@ import Row from "./lib/layout/Row";
 import Badge from "./lib/Badge";
 import Button, { BUTTON_SIZE, BUTTON_TYPE } from "./lib/Button";
 import Jumbotron from "./lib/Jumbotron";
-import ListGroup, { LIST_GROUP_TYPE } from "./lib/ListGroup";
-import ListGroupItem from "./lib/ListGroupItem";
+import ListGroup, { LIST_GROUP_TYPE } from "./lib/listGroup/ListGroup";
 import Sticky from "./lib/Sticky";
 
 // consts and helpers
@@ -34,7 +33,6 @@ export {
   Container,
   Jumbotron,
   ListGroup,
-  ListGroupItem,
   Row,
   Sticky
 };

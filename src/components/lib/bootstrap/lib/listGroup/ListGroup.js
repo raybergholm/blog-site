@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { generateClassName } from "../utils/classNames";
+import { generateClassName } from "../../utils/classNames";
 
-import ListGroupItem from "./ListGroupItem";
+import StandardListGroupItem from "./StandardListGroupItem";
+import LinkListGroupItem from "./LinkListGroupItem";
+import ButtonListGroupItem from "./ButtonListGroupItem";
 
 export const LIST_GROUP_TYPE = {
   Standard: "standard",
@@ -29,22 +31,19 @@ const buildClassName = ({ flush, extras }) => {
   return generateClassName(tokens);
 };
 
-const ListGroup = ({ id, style, children, listType = LIST_GROUP_TYPE.Standard, items, ...props }) => {
-  const listItems = items.map((entry, index) => (
-    <ListGroupItem key={index} type={listType} data={entry}>
-      {children}
-    </ListGroupItem>
-  ));
-
+const ListGroup = ({ id, style, listType = LIST_GROUP_TYPE.Standard, items, ...props }) => {
   switch (listType) {
     case LIST_GROUP_TYPE.Standard:
       return (<ul id={id || null} style={style || null} className={buildClassName(props)}>
-        {listItems}
+        {items.map((itemProperties, index) => (<StandardListGroupItem key={index} {...itemProperties} />))}
       </ul>);
     case LIST_GROUP_TYPE.Link:
+    return (<div id={id || null} style={style || null} className={buildClassName(props)}>
+    {items.map((itemProperties, index) => (<LinkListGroupItem key={index} {...itemProperties} />))}
+  </div>);
     case LIST_GROUP_TYPE.Button:
       return (<div id={id || null} style={style || null} className={buildClassName(props)}>
-        {listItems}
+        {items.map((itemProperties, index) => (<ButtonListGroupItem key={index} {...itemProperties} />))}
       </div>);
     default:
       return null;
@@ -53,10 +52,6 @@ const ListGroup = ({ id, style, children, listType = LIST_GROUP_TYPE.Standard, i
 export default ListGroup;
 
 ListGroup.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.array
-  ]),
   id: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.object),
   listType: PropTypes.string,
