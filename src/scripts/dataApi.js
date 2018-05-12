@@ -2,7 +2,7 @@ import mimisbrunnrApiInterface from "./mimisbrunnrApiInterface";
 
 import { devStage } from "../config/configs";
 
-const DATA_API_URL = `https://${devStage.restApiId}.execute-api.${devStage.awsRegion}.amazonaws.com/${devStage.restApiStage}/`;
+const DATA_API_URL = `https://${devStage.restApiId}.execute-api.${devStage.awsRegion}.amazonaws.com/${devStage.restApiStage}`;
 
 export const FIELDS = {
   Date: "Date"
@@ -30,7 +30,7 @@ const buildQuery = ({ page, searchtext, tags }) => {
   } else {
     return {
       searchtext,
-      tags: tags.join(" ")
+      tags: tags ? tags.join(" ") : []
     };
   }
 };
