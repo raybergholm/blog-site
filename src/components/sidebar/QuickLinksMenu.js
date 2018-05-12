@@ -6,7 +6,7 @@ import { ListGroup } from "../lib/bootstrap/react-bootstrap";
 const QuickLinksMenu = ({ title, items }) => (
   <menu className="quicklinks-menu">
     <h4>{title}</h4>
-    <ListGroup items={items} />
+    <ListGroup items={items} flush />
   </menu>
 );
 

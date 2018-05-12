@@ -6,7 +6,7 @@ import { ListGroup } from "../lib/bootstrap/react-bootstrap";
 const ArchiveMenu = ({ items }) => (
   <menu className="archive-menu">
     <h4>Archives</h4>
-    <ListGroup items={items} />
+    <ListGroup items={items} flush />
   </menu>
 );
 
