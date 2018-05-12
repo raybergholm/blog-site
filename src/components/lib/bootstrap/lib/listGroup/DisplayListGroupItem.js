@@ -27,15 +27,15 @@ const buildClassName = ({ bootstrapStyle, active, disabled, extras }) => {
   return generateClassName(tokens);
 };
 
-const StandardListGroupItem = ({ id, style, text, ...props }) => (
+const DisplayListGroupItem = ({ id, style, text, ...props }) => (
   <li id={id || null} style={style || null} className={buildClassName(props)}>
     {text}
   </li>
 );
 
-export default StandardListGroupItem;
+export default DisplayListGroupItem;
 
-StandardListGroupItem.propTypes = {
+DisplayListGroupItem.propTypes = {
   id: PropTypes.string,
   style: PropTypes.object,
   text: PropTypes.string
