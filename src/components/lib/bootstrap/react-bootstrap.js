@@ -7,7 +7,6 @@ import Row from "./lib/layout/Row";
 import Badge from "./lib/Badge";
 import Button, { BUTTON_SIZE, BUTTON_TYPE } from "./lib/Button";
 import Jumbotron from "./lib/Jumbotron";
-import ListGroup, { LIST_GROUP_TYPE } from "./lib/listGroup/ListGroup";
 import Nav from "./lib/nav/Nav";
 import Sticky from "./lib/Sticky";
 
@@ -33,7 +32,6 @@ export {
   ColBreak,
   Container,
   Jumbotron,
-  ListGroup,
   Nav,
   Row,
   Sticky
