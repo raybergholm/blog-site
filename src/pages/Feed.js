@@ -11,24 +11,21 @@ const fetchMainContent = async () => {
 
   console.log(response);
 
-  const blogPosts = response.body.map((post) => {
-    console.log(post);
-    return (<BlogPost key={post.postId} _id={post.postId} {...post.content} />);
-  });
+  const blogPosts = response.body.map((post) => (<BlogPost key={post.postId} _id={post.postId} {...post.content} />));
 
   console.log(blogPosts);
 
   return blogPosts;
 };
 
-const Page = async () => (
+const FeedPage = () => (
   <div id="main-content-section">
-    {await fetchMainContent()}
+    
   </div>
 );
 
-export default Page;
+export default FeedPage;
 
-Page.propTypes = {
+FeedPage.propTypes = {
   match: PropTypes.object
 };
