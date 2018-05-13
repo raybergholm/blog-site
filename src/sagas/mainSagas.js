@@ -1,15 +1,47 @@
 import { put, takeEvery } from "redux-saga/effects";
 
+import dataApi from "../scripts/dataApi";
+
 export function* listBlogPosts() {
+  console.log("in listBlogPosts");
 
+  const response = yield dataApi.listBlogPosts({});
+
+  console.log("response from server:", response);
+
+  const blogPosts = response.body;
+
+  console.log("blogPosts:", blogPosts);
+
+  return blogPosts;
 }
 
-export function* queryBlogPosts(){
+export function* queryBlogPosts(queryParams){
+  console.log("in queryBlogPosts");
 
+  const response = yield dataApi.queryBlogPosts(queryParams);
+
+  console.log("response from server:", response);
+
+  const blogPosts = response.body;
+
+  console.log("blogPosts:", blogPosts);
+
+  return blogPosts;
 }
 
-export function* fetchBlogPost(){
+export function* fetchBlogPost(postId){
+  console.log("in fetchBlogPost");
 
+  const response = yield dataApi.getBlogPost(postId);
+
+  console.log("response from server:", response);
+
+  const blogPosts = response.body;
+
+  console.log("blogPosts:", blogPosts);
+
+  return blogPosts;
 }
 
 export default function* mainSagas() {

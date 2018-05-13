@@ -53,11 +53,18 @@ export const listBlogPosts = async ({ ...queryParams }) => {
   return await api.get({ restPath, query });
 };
 
-export const getBlogPost = async ({ id }) => {
-  const restPath = `public/blog/${id}`;
+export const getBlogPost = async (postId) => {
+  const restPath = `public/blog/${postId}`;
 
   return await api.get({ restPath });
 };
+
+const dataApi = () => ({
+  listBlogPosts,
+  getBlogPost
+});
+
+export default dataApi;
 
 // const dataApi = ({ authToken }) => ({
 //   listBlogPosts: async (queryParams) => await listBlogPosts({ authToken, ...queryParams }),
