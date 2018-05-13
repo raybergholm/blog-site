@@ -4,6 +4,8 @@ import { devStage } from "../config/configs";
 
 const DATA_API_URL = `https://${devStage.restApiId}.execute-api.${devStage.awsRegion}.amazonaws.com/${devStage.restApiStage}`;
 
+const API_KEY = "Y7Db5PmJ28WG4Yew9cve4jPdNnC1VthaNtDobGda";
+
 export const FIELDS = {
   Date: "Date"
 };
@@ -17,7 +19,7 @@ export const ORDER = {
   Descending: "DESC"
 };
 
-const api = mimisbrunnrApiInterface(DATA_API_URL);
+const api = mimisbrunnrApiInterface(DATA_API_URL, API_KEY);
 
 /**
  * Only allow specific valid params to pass through
@@ -48,15 +50,13 @@ export const listBlogPosts = async ({ ...queryParams }) => {
 
   const query = queryParams ? buildQuery(queryParams) : DEFAULT_QUERY;
 
-  return await api.get({ restPath, query })
-    .then(({ body }) => body);
+  return await api.get({ restPath, query });
 };
 
 export const getBlogPost = async ({ id }) => {
   const restPath = `public/blog/${id}`;
 
-  return await api.get({ restPath })
-    .then(({ body }) => body);
+  return await api.get({ restPath });
 };
 
 // const dataApi = ({ authToken }) => ({
