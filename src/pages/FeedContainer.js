@@ -2,9 +2,9 @@ import { connect } from "react-redux";
 
 import { viewArticle } from "../../actions/blogActions";
 
-import ArticleView from "./ArticleView";
+import FeedView from "./FeedView";
 
-const ArticleContainer = connect(
+const FeedContainer = connect(
   (state) => ({
     currentArticle: "",
     prevArticle: "",
@@ -14,6 +14,6 @@ const ArticleContainer = connect(
     goToPreviousArticle: () => dispatch(viewArticle(ownProps.prevArticle)),
     goToNextArticle: () => dispatch(viewArticle(ownProps.nextArticle))
   })
-)(ArticleView);
+)(FeedView);
 
-export default ArticleContainer;
+export default FeedContainer;

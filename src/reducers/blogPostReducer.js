@@ -2,7 +2,7 @@ const initialState = {
   currentArticle: null,
 };
 
-const articleReducer = (state = initialState, action) => {
+const blogPostReducer = (state = initialState, action) => {
   switch (action.type){
     case "VIEW_ARTICLE":
       return Object.assign({}, state, {
@@ -13,4 +13,4 @@ const articleReducer = (state = initialState, action) => {
   }
 };
 
-export default articleReducer;
+export default blogPostReducer;

@@ -1,4 +1,4 @@
-const filterReducer = (state = [], action) => {
+const tagFilterReducer = (state = [], action) => {
   switch (action.type) {
     case "ADD_TAG":
       if (state.indexOf(action.tag) > -1) {
@@ -21,4 +21,4 @@ const filterReducer = (state = [], action) => {
   }
 };
 
-export default filterReducer;
+export default tagFilterReducer;
