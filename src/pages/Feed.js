@@ -4,22 +4,31 @@ import PropTypes from "prop-types";
 import BlogPost from "../components/BlogPost";
 
 import { listBlogPosts } from "../scripts/dataApi";
+
 const fetchMainContent = async () => {
-  return await listBlogPosts({})
-    .then((posts) => posts.map((post) => {
-      console.log(post);
-      return (<BlogPost key={post._id} _id={post._id} {...post.content} />);
-    }));
+  console.log("in fetchMainContent");
+  const response = await listBlogPosts({});
+
+  console.log(response);
+
+  const blogPosts = response.body.map((post) => {
+    console.log(post);
+    return (<BlogPost key={post.postId} _id={post.postId} {...post.content} />);
+  });
+
+  console.log(blogPosts);
+
+  return blogPosts;
 };
 
-const Page = () => (
+const Page = async () => (
   <div id="main-content-section">
-    {fetchMainContent()}
+    {await fetchMainContent()}
   </div>
 );
+
+export default Page;
 
 Page.propTypes = {
   match: PropTypes.object
 };
-
-export default Page;
