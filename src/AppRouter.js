@@ -1,19 +1,19 @@
 import React from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
-import AboutView from "./pages/AboutView";
+import AboutContainer from "./pages/AboutContainer";
 
-import FeedView from "./pages/FeedView";
-import ArchiveView from "./pages/ArchiveView";
-import BlogPostView from "./pages/BlogPostView";
+import BlogFeedContainer from "./pages/BlogFeedContainer";
+import ArchiveContainer from "./pages/ArchiveContainer";
+import BlogPostContainer from "./pages/BlogPostContainer";
 
 const AppRouter = () => (
   <BrowserRouter>
     <Switch>
-      <Route exact path="/" component={FeedView} />
-      <Route exact path="/about" component={AboutView} />
-      <Route path="/post/:postId" component={BlogPostView} />
-      <Route path="/archive/:year/:month" component={ArchiveView} />
+      <Route exact path="/" component={BlogFeedContainer} />
+      <Route exact path="/about" component={AboutContainer} />
+      <Route path="/post/:postId" component={BlogPostContainer} />
+      <Route path="/archive/:year/:month" component={ArchiveContainer} />
       <Redirect path="/blog/*" to="/" />
       <Redirect path="*" to="/" />
     </Switch>
