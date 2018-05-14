@@ -1,18 +1,12 @@
 import React from "react";
 
-import Header from "./components/layout/Header";
-import TwoColumnRightBody from "./components/layout/TwoColumnRightBody";
-import Sidebar from "./components/Sidebar";
-import AppRouter from "./AppRouter";
+import MainContainer from "./pages/MainContainer";
 
 import "./App.css";
 
 const App = () => (
   <div>
-    <Header />
-    <TwoColumnRightBody side={<Sidebar />}>
-      <AppRouter />
-    </TwoColumnRightBody>
+    <MainContainer />
   </div>
 );
 
