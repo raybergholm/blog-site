@@ -1,3 +1,4 @@
+import React from "react";
 import { connect } from "react-redux";
 
 import { loadPosts } from "../actions/blogFeedActions";
@@ -9,7 +10,16 @@ const FeedContainer = connect(
     feed: state.feed
   }),
   (dispatch) => ({
+    
   })
-)(BlogFeedView);
+)(class extends React.Component {
+  async componentDidMount() {
+    const posts = await loadPosts();
+    console.log("async loaded posts:", posts);
+  }
+  render() {
+    return <BlogFeedView {...this.props} />;
+  }
+});
 
 export default FeedContainer;

@@ -1,3 +1,4 @@
+import React from "react";
 import { connect } from "react-redux";
 
 import { viewArticle } from "../actions/blogPostActions";
@@ -14,6 +15,13 @@ const BlogPostContainer = connect(
     goToPreviousArticle: () => dispatch(viewArticle(ownProps.prevArticle)),
     goToNextArticle: () => dispatch(viewArticle(ownProps.nextArticle))
   })
-)(BlogPostView);
+)(class extends React.Component {
+  componentDidMount() {
+
+  }
+  render() {
+    return <BlogPostView {...this.props} />;
+  }
+});
 
 export default BlogPostContainer;

@@ -1,3 +1,4 @@
+import React from "react";
 import { connect } from "react-redux";
 
 import ArchiveView from "./ArchiveView";
@@ -8,6 +9,13 @@ const ArchiveContainer = connect(
   }),
   (dispatch, ownProps) => ({
   })
-)(ArchiveView);
+)(class extends React.Component {
+  componentDidMount() {
+
+  }
+  render() {
+    return <ArchiveView {...this.props} />;
+  }
+});
 
 export default ArchiveContainer;

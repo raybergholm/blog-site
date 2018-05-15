@@ -1,15 +1,21 @@
+import React from "react";
 import { connect } from "react-redux";
-
-import { willMountHook } from "../utils/hooks";
 
 import AppView from "./AppView";
 
 const AppContainer = connect(
   (state) => ({
-    archive: state.archive
+    app: state.app
   }),
   (dispatch) => ({
   })
-)(willMountHook(AppView, () => {}));
+)(class extends React.Component {
+  componentDidMount() {
+
+  }
+  render() {
+    return <AppView {...this.props} />;
+  }
+});
 
 export default AppContainer;
