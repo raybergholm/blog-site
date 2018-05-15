@@ -1,17 +1,15 @@
 import { connect } from "react-redux";
 
-import { viewArticle } from "../../actions/blogFeedActions";
+import { loadPosts } from "../actions/blogFeedActions";
 
-import FeedView from "./FeedView";
+import BlogFeedView from "./BlogFeedView";
 
 const FeedContainer = connect(
   (state) => ({
-    top: state.feed.top,
-    limit: state.feed.limit,
-    searchValue: state.feed.searchValue
+    feed: state.feed
   }),
-  (dispatch, ownProps) => ({
+  (dispatch) => ({
   })
-)(FeedView);
+)(BlogFeedView);
 
 export default FeedContainer;

@@ -10,7 +10,7 @@ import mainSagas from "./sagas/mainSagas";
 
 import "./index.css";
 
-import App from "./App";
+import AppContainer from "./pages/AppContainer";
 import registerServiceWorker from "./registerServiceWorker";
 
 const sagaMiddleware = createSagaMiddleware();
@@ -23,7 +23,7 @@ sagaMiddleware.run(mainSagas);
 
 render(
   <Provider store={store}>
-    <App />
+    <AppContainer />
   </Provider>,
   document.getElementById("root")
 );

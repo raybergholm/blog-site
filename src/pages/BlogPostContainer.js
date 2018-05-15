@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import { viewArticle } from "../../actions/blogActions";
+import { viewArticle } from "../actions/blogPostActions";
 
 import BlogPostView from "./BlogPostView";
 

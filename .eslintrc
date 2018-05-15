@@ -38,6 +38,8 @@
         "no-undef-init": "error",
         "no-undefined": "error",
         "no-unmodified-loop-condition": "error",
-        "semi": ["error", "always"]
+        "semi": ["error", "always"],
+
+        "react/display-name": "off"
     }
 }
