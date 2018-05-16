@@ -45,7 +45,25 @@ const DEFAULT_QUERY = buildQuery({
   order: ORDER.Descending
 });
 
-export const listBlogPosts = async ({ ...queryParams }) => {
+const getArchiveLinks = async () => {
+  const restPath = "public/archive-links";
+
+  return await api.get({ restPath });
+};
+
+const getQuickLinks = async () => {
+  const restPath = "public/archive-links";
+
+  return await api.get({ restPath });
+};
+
+const getTagList = async () => {
+  const restPath = "public/tags";
+
+  return await api.get({ restPath });
+};
+
+const listBlogPosts = async ({ ...queryParams }) => {
   const restPath = "public/blog";
 
   const query = queryParams ? buildQuery(queryParams) : DEFAULT_QUERY;
@@ -53,13 +71,16 @@ export const listBlogPosts = async ({ ...queryParams }) => {
   return await api.get({ restPath, query });
 };
 
-export const getBlogPost = async (postId) => {
+const getBlogPost = async (postId) => {
   const restPath = `public/blog/${postId}`;
 
   return await api.get({ restPath });
 };
 
 const dataApi = () => ({
+  getArchiveLinks,
+  getQuickLinks,
+  getTagList,  
   listBlogPosts,
   getBlogPost
 });

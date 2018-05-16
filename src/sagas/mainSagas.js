@@ -1,14 +1,19 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 
-import dataApi from "../scripts/dataApi";
+import { getQuickLinks, getArchiveLinks, getTagList, listBlogPosts as dataApiListBlogPosts, queryBlogPosts as dataApiQueryBlogPosts, getBlogPost } from "../scripts/dataApi";
 
 export function* initialize() {
   console.log("initialization sequence started");
 
   // SIDEBAR ACTIONS:
   // Fetch quick links list
+
+  yield call(getQuickLinks);
   // Fetch archive links list: one per month from oldest to newest
+  yield call(getArchiveLinks);
+
   // Fetch tags to populate options for searchByTag
+  yield call(getTagList);
 
   // Fetch default init load: newest 10 posts
 
@@ -26,7 +31,9 @@ export function* listBlogPosts() {
   console.log("in listBlogPosts");
   try {
 
-    const response = yield call(dataApi.listBlogPosts, {});
+    const response = yield call(dataApiListBlogPosts, {});
+
+    yield response;
 
     console.log("response from server:", response);
 
@@ -47,7 +54,7 @@ export function* queryBlogPosts(queryParams) {
   console.log("in queryBlogPosts");
   try {
 
-    const response = yield call(dataApi.queryBlogPosts, queryParams);
+    const response = yield call(dataApiQueryBlogPosts, queryParams);
 
     console.log("response from server:", response);
 
@@ -64,7 +71,7 @@ export function* queryBlogPosts(queryParams) {
 export function* fetchBlogPost(postId) {
   console.log("in fetchBlogPost");
   try {
-    const response = yield call(dataApi.getBlogPost, postId);
+    const response = yield call(getBlogPost, postId);
 
     console.log("response from server:", response);
 
