@@ -46,7 +46,7 @@ const buildClassName = ({ bootstrapStyle, size, outline, block, active, disabled
   return generateClassName(tokens);
 };
 
-const Button = ({ id, style, children, type, action, disabled, ...props }) => {
+const Button = ({ id, style, children, type = BUTTON_TYPE.Button, action, disabled, ...props }) => {
   let component;
 
   switch (type) {
@@ -89,6 +89,6 @@ Button.propTypes = {
   ]),
   id: PropTypes.string,
   disabled: PropTypes.bool,
-  style: PropTypes.style,
-  type: PropTypes.string.isRequired
+  style: PropTypes.object,
+  type: PropTypes.string
 };
