@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { initialize, initializationComplete } from "../actions/generalActions";
-import { searchByValue, searchByTags } from "../actions/sidebarActions";
+import { searchByValue, searchByTags, setSelectedTags } from "../actions/sidebarActions";
 
 import AppView from "./AppView";
 
@@ -32,7 +32,8 @@ const AppContainer = connect(
     initialize: () => dispatch(initialize()),
     initializationComplete: () => dispatch(initializationComplete()),
     searchByValue: (val) => dispatch(searchByValue(val)),
-    searchByTags: (tags) => dispatch(searchByTags(tags))
+    searchByTags: (tags) => dispatch(searchByTags(tags)),
+    setSelectedTags: (selectedTags) => dispatch(setSelectedTags(selectedTags))
   }),
   (state, dispatch, own) => ({
     ...state,
