@@ -1,15 +1,26 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const SearchPanel = ({ action }) => (
+import { Badge } from "../lib/bootstrap/react-bootstrap";
+
+const SearchPanel = ({ tags, action }) => (
   <menu className="search-panel">
-    <h4>Search</h4>
-    <input placeholder="search..." />
+    <div>
+      <h4>Search</h4>
+      <input placeholder="search..." />
+    </div>
+    {tags &&
+      <div>
+        <h4>Tags:</h4>
+        {tags.map((tag, index) => <Badge key={index} pill>{tag}</Badge>)}
+      </div>
+    }
   </menu>
 );
 
 SearchPanel.propTypes = {
-  action: PropTypes.func
+  action: PropTypes.func,
+  tags: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default SearchPanel;
