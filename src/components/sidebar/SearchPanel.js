@@ -1,18 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Badge } from "../lib/bootstrap/react-bootstrap";
+import { Button } from "../lib/bootstrap/react-bootstrap";
 
 const SearchPanel = ({ tags, action }) => (
   <menu className="search-panel">
     <div>
       <h4>Search</h4>
       <input placeholder="search..." />
+      <Button action={action}><span>Search</span></Button>
     </div>
     {tags &&
       <div>
         <h4>Tags:</h4>
-        {tags.map((tag, index) => <Badge key={index} pill>{tag}</Badge>)}
+        {tags.map(({ tagName, selected }, index) => <Button key={index} active={selected}>{tagName}</Button>)}
       </div>
     }
   </menu>

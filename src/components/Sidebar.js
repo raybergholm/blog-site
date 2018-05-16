@@ -5,34 +5,18 @@ import QuickLinksMenu from "./sidebar/QuickLinksMenu";
 import ArchiveMenu from "./sidebar/ArchiveMenu";
 import SearchPanel from "./sidebar/SearchPanel";
 
-import { Sticky } from "./lib/bootstrap/react-bootstrap";
+import { StickyTop } from "./lib/bootstrap/react-bootstrap";
 
 import quickLinks from "../config/quickLinks.json";
 import archiveLinks from "../config/archiveLinks.json";
 
-const buildStickyConfig = ({ topAnchor, bottomAnchor }) => {
-  const config = {
-    "data-options": "marginTop:4;",
-  };
-
-  if (topAnchor) {
-    config["data-top-anchor"] = topAnchor;
-  }
-
-  if (bottomAnchor) {
-    config["data-bottom-anchor"] = bottomAnchor;
-  }
-
-  return config;
-};
-
 const BlogSidebar = (props) => (
   <menu data-sticky-container>
-    <Sticky {...buildStickyConfig(props)}>
+    <StickyTop>
       <SearchPanel action={null} />
       <QuickLinksMenu title="Quick Links" items={quickLinks} />
       <ArchiveMenu items={archiveLinks} />
-    </Sticky>
+    </StickyTop>
   </menu>
 );
 
