@@ -1,25 +1,38 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 
-import { getQuickLinks, getArchiveLinks, getTagList, listBlogPosts as dataApiListBlogPosts, queryBlogPosts as dataApiQueryBlogPosts, getBlogPost } from "../scripts/dataApi";
+import dataApi from "../scripts/dataApi";
 
 export function* initialize() {
   console.log("initialization sequence started");
 
-  // SIDEBAR ACTIONS:
-  // Fetch quick links list
+  const quickLinks = yield call(dataApi.getQuickLinks);
+  yield put({
+    type: "FETCHED_QUICK_LINKS",
+    data: quickLinks
+  });
 
-  yield call(getQuickLinks);
-  // Fetch archive links list: one per month from oldest to newest
-  yield call(getArchiveLinks);
+  
+  const archiveLinks = yield call(dataApi.getArchiveLinks);
+  yield put({
+    type: "FETCHED_ARCHIVE_LINKS",
+    data: archiveLinks
+  });
 
-  // Fetch tags to populate options for searchByTag
-  yield call(getTagList);
+  const tags = yield call(dataApi.getTagList);
+  yield put({
+    type: "FETCHED_TAG_LIST",
+    data: tags
+  });
 
-  // Fetch default init load: newest 10 posts
+  const posts = yield call(dataApi.listBlogPosts);
+  yield put({
+    type: "FETCHED_BLOG_POSTS",
+    data: posts
+  });
 
-
-
-  yield true;
+  yield put({
+    type: "INITIALIZE_END"
+  });
 }
 
 export function* endInit() {
@@ -31,7 +44,7 @@ export function* listBlogPosts() {
   console.log("in listBlogPosts");
   try {
 
-    const response = yield call(dataApiListBlogPosts, {});
+    const response = yield call(dataApi.listBlogPosts, {});
 
     yield response;
 
@@ -54,7 +67,7 @@ export function* queryBlogPosts(queryParams) {
   console.log("in queryBlogPosts");
   try {
 
-    const response = yield call(dataApiQueryBlogPosts, queryParams);
+    const response = yield call(dataApi.queryBlogPosts, queryParams);
 
     console.log("response from server:", response);
 
@@ -71,7 +84,7 @@ export function* queryBlogPosts(queryParams) {
 export function* fetchBlogPost(postId) {
   console.log("in fetchBlogPost");
   try {
-    const response = yield call(getBlogPost, postId);
+    const response = yield call(dataApi.getBlogPost, postId);
 
     console.log("response from server:", response);
 

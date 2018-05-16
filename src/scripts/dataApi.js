@@ -71,6 +71,10 @@ const listBlogPosts = async ({ ...queryParams }) => {
   return await api.get({ restPath, query });
 };
 
+const queryBlogPosts = async () => {
+
+};
+
 const getBlogPost = async (postId) => {
   const restPath = `public/blog/${postId}`;
 
@@ -82,6 +86,7 @@ const dataApi = () => ({
   getQuickLinks,
   getTagList,  
   listBlogPosts,
+  queryBlogPosts,
   getBlogPost
 });
 
