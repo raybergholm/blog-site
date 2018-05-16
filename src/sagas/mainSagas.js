@@ -4,6 +4,16 @@ import dataApi from "../scripts/dataApi";
 
 export function* initialize() {
   console.log("initialization sequence started");
+
+  // SIDEBAR ACTIONS:
+  // Fetch quick links list
+  // Fetch archive links list: one per month from oldest to newest
+  // Fetch tags to populate options for searchByTag
+
+  // Fetch default init load: newest 10 posts
+
+
+
   yield true;
 }
 
@@ -32,6 +42,8 @@ export function* listBlogPosts() {
 }
 
 export function* queryBlogPosts(queryParams) {
+  // TODO: first, check if the requested
+
   console.log("in queryBlogPosts");
   try {
 
