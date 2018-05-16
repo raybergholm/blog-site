@@ -5,13 +5,17 @@ import { loadPosts } from "../actions/blogFeedActions";
 
 import BlogFeedView from "./BlogFeedView";
 
-const createView = (ViewComponent, componentDidMountHook) => class extends React.Component {
+const createView = (ViewComponent, hooks) => class extends React.Component {
   componentDidMount() {
-    componentDidMountHook(this.props);
+    // hooks.didMount && hooks.didMount(this.props);
   }
   render() {
     return <ViewComponent {...this.props} />;
   }
+};
+
+const hooks = {
+  didMount: ({ actions }) => actions.loadPosts()
 };
 
 const FeedContainer = connect(
@@ -28,6 +32,6 @@ const FeedContainer = connect(
       ...dispatch
     }
   }),
-)(createView(BlogFeedView, ({actions}) => actions.loadPosts()));
+)(createView(BlogFeedView, hooks));
 
 export default FeedContainer;

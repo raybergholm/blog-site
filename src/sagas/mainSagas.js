@@ -2,6 +2,11 @@ import { call, put, takeEvery } from "redux-saga/effects";
 
 import dataApi from "../scripts/dataApi";
 
+export function* initialize() {
+  console.log("initialization sequence started");
+  yield true;
+}
+
 export function* listBlogPosts() {
   console.log("in listBlogPosts");
   try {
@@ -57,6 +62,7 @@ export function* fetchBlogPost(postId) {
 }
 
 export default function* mainSagas() {
+  yield takeEvery("INITIALIZE", initialize);
   yield takeEvery("LOAD_POSTS", listBlogPosts);
   yield takeEvery("LIST_BLOG_POSTS", listBlogPosts);
   yield takeEvery("QUERY_BLOG_POSTS", queryBlogPosts);
