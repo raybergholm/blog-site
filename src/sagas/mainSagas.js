@@ -57,6 +57,7 @@ export function* fetchBlogPost(postId) {
 }
 
 export default function* mainSagas() {
+  yield takeEvery("LOAD_POSTS", listBlogPosts);
   yield takeEvery("LIST_BLOG_POSTS", listBlogPosts);
   yield takeEvery("QUERY_BLOG_POSTS", queryBlogPosts);
   yield takeEvery("FETCH_BLOG_POST", fetchBlogPost);

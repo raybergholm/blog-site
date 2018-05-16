@@ -3,29 +3,16 @@ import PropTypes from "prop-types";
 
 import BlogPost from "../components/BlogPost";
 
-import { listBlogPosts } from "../scripts/dataApi";
+const displayBlogPosts = (blogPosts) => blogPosts.map((post) => <BlogPost key={post.postId} _id={post.postId} {...post.content} />);
 
-const fetchMainContent = async () => {
-  console.log("in fetchMainContent");
-  const response = await listBlogPosts({});
-
-  console.log(response);
-
-  const blogPosts = response.body.map((post) => (<BlogPost key={post.postId} _id={post.postId} {...post.content} />));
-
-  console.log(blogPosts);
-
-  return blogPosts;
-};
-
-const FeedPage = () => (
+const FeedPage = ({posts}) => (
   <div id="main-content-section">
-    
+    {posts && posts.length > 0 && displayBlogPosts(posts)}
   </div>
 );
 
 export default FeedPage;
 
 FeedPage.propTypes = {
-  match: PropTypes.object
+  posts: PropTypes.arrayOf(PropTypes.object)
 };
