@@ -7,6 +7,11 @@ export function* initialize() {
   yield true;
 }
 
+export function* endInit() {
+  console.log("initialization sequence started");
+  yield true;
+}
+
 export function* listBlogPosts() {
   console.log("in listBlogPosts");
   try {
@@ -62,7 +67,8 @@ export function* fetchBlogPost(postId) {
 }
 
 export default function* mainSagas() {
-  yield takeEvery("INITIALIZE", initialize);
+  yield takeEvery("INITIALIZE_START", initialize);
+  yield takeEvery("INITIALIZE_END", endInit);
   yield takeEvery("LOAD_POSTS", listBlogPosts);
   yield takeEvery("LIST_BLOG_POSTS", listBlogPosts);
   yield takeEvery("QUERY_BLOG_POSTS", queryBlogPosts);

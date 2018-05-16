@@ -1,3 +1,7 @@
 export const initialize = () => ({
-  type: "INITIALIZE"
+  type: "INITIALIZE_START"
+});
+
+export const initialisationComplete = () => ({
+  type: "INITIALIZE_END"
 });

@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { initialize } from "../actions/generalActions";
+import { initialize, initializationComplete } from "../actions/generalActions";
 import { searchByValue, searchByTags } from "../actions/sidebarActions";
 
 import AppView from "./AppView";
@@ -25,10 +25,12 @@ const hooks = {
 
 const AppContainer = connect(
   (state) => ({
-    initialized: state.initialized
+    initialized: state.initialized,
+    dataCache: state.dataCache
   }),
   (dispatch) => ({
     initialize: () => dispatch(initialize()),
+    initializationComplete: () => dispatch(initializationComplete()),
     searchByValue: (val) => dispatch(searchByValue(val)),
     searchByTags: (tags) => dispatch(searchByTags(tags))
   }),
