@@ -1,35 +1,28 @@
-export const loadedQuickLinks = (quickLinks) => ({
-  type: "LOADED_QUICK_LINKS",
-  data: quickLinks
-});
-
-export const loadedArchiveLinks = (archiveLinks) => ({
-  type: "LOADED_ARCHIVE_LINKS",
-  data: archiveLinks
-});
-
-export const loadedTagList = (tagList) => {
-  const tags = tagList.map((tagName) => ({
-    tagName,
-    selected: false
-  }));
-  return {
-    type: "LOADED_TAG_LIST",
-    data: tags
-  };
+export const actionTypes = {
+  SearchByValue: "SEARCH_BY_VALUE",
+  SearchByTags: "SEARCH_BY_TAGS",
+  UpdateSelectedTags: "UPDATE_SELECTED_TAGS"
 };
 
-export const searchByValue = (searchValue) => ({
-  type: "SEARCH_BY_VALUE",
-  search: searchValue
-});
+export const actionCreators = {
+  searchByValue: (searchValue) => ({
+    type: actionTypes.SearchByValue,
+    payload: {
+      searchValue
+    }
+  }),
 
-export const searchByTags = (searchTags) => ({
-  type: "SEARCH_BY_TAGS",
-  search: searchTags
-});
+  searchByTags: (searchTags) => ({
+    type: actionTypes.SearchByTags,
+    payload: {
+      searchTags
+    }
+  }),
 
-export const setSelectedTags = (selectedTags) => ({
-  type: "UPDATE_SELECTED_TAGS",
-  data: selectedTags
-});
+  updateSelectedTags: (selectedTags) => ({
+    type: actionTypes.UpdateSelectedTags,
+    payload: {
+      selectedTags
+    }
+  })
+};
