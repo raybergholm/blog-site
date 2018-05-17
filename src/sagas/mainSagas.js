@@ -1,33 +1,41 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 
+import { actionCreators } from "../actions/generalActions";
+
 import dataApi from "../scripts/dataApi";
+
+const api = dataApi();
 
 export function* initialize() {
   console.log("initialization sequence started");
+  try{
 
-  const quickLinks = yield call(dataApi.getQuickLinks);
-  yield put({
-    type: "FETCHED_QUICK_LINKS",
-    data: quickLinks
-  });
+    const quickLinks = yield call(api.getQuickLinks, null);
+    yield put({
+      type: "FETCHED_QUICK_LINKS",
+      payload: quickLinks
+    });
+  }catch(error){
+    yield put(actionCreators.setError("", error));
+  }
 
   
-  const archiveLinks = yield call(dataApi.getArchiveLinks);
+  const archiveLinks = yield call(api.getArchiveLinks, null);
   yield put({
     type: "FETCHED_ARCHIVE_LINKS",
-    data: archiveLinks
+    payload: archiveLinks
   });
 
-  const tags = yield call(dataApi.getTagList);
+  const tags = yield call(api.getTagList, null);
   yield put({
     type: "FETCHED_TAG_LIST",
-    data: tags
+    payload: tags
   });
 
-  const posts = yield call(dataApi.listBlogPosts);
+  const posts = yield call(api.listBlogPosts, null);
   yield put({
     type: "FETCHED_BLOG_POSTS",
-    data: posts
+    payload: posts
   });
 
   yield put({
