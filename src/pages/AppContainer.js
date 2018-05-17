@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { actionCreators as generalActionCreators } from "../actions/generalActions";
-import { actionCreators as sidebarActionCreators } from "../actions/sidebarActions";
+import { actionCreators as generalActionCreators } from "../reduxActions/generalActions";
+import { actionCreators as sidebarActionCreators } from "../reduxActions/sidebarActions";
 
 import AppView from "./AppView";
 

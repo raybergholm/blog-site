@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { actionCreators } from "../actions/blogFeedActions";
+import { actionCreators } from "../reduxActions/blogFeedActions";
 
 import BlogFeedView from "./BlogFeedView";
 
@@ -24,7 +24,7 @@ const FeedContainer = connect(
   }),
   (dispatch, ownProps) => ({
     loadPosts: () => dispatch(actionCreators.loadPosts()),
-    readPost: () => dispatch(actionCreators.readPost(ownProps.postId)) 
+    readPost: () => dispatch(actionCreators.readPost(ownProps.postId))
   }),
   (state, dispatch, own) => ({
     ...state,

@@ -26,3 +26,24 @@ export const actionCreators = {
     }
   })
 };
+
+const initialState = {
+  flags: {},
+  errors: {} 
+};
+
+export const reducer = (state = initialState, action) => {
+  switch (action.type){
+    case actionTypes.SetFlag:
+
+      return Object.assign({}, state, {
+        currentArticle: action.targetArticle
+      });
+      case actionTypes.SetError:
+      return Object.assign({}, state, {
+        currentArticle: action.targetArticle
+      });
+    default:
+      return state;
+  }
+};

@@ -42,3 +42,22 @@ export const actionCreators = {
     };
   },
 };
+
+const initialState = {
+  quickLinks: {},
+  archiveLinks: {},
+  tags: []
+};
+
+export const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case actionTypes.LoadedQuickLinks:
+      return Object.assign({}, state, ...action.payload);
+    case actionTypes.LoadedArchiveLinks:
+      return Object.assign({}, state, ...action.payload);
+    case actionTypes.LoadedTagList:
+      return Object.assign({}, state, ...action.payload);
+    default:
+      return state;
+  }
+};

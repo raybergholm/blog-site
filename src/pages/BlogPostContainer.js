@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { actionCreators } from "../actions/blogPostActions";
+import { actionCreators } from "../reduxActions/blogPostActions";
 
 import BlogPostView from "./BlogPostView";
 
@@ -9,7 +9,7 @@ const BlogPostContainer = connect(
   (state) => ({
     currentPostId: "",
     prevPostId: "",
-    nextPostId: "" 
+    nextPostId: ""
   }),
   (dispatch, ownProps) => ({
     goToPreviousArticle: () => dispatch(actionCreators.moveToPrevPost(ownProps.prevPostId)),
