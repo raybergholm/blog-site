@@ -1,19 +1,19 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { viewArticle } from "../actions/blogPostActions";
+import { actionCreators } from "../actions/blogPostActions";
 
 import BlogPostView from "./BlogPostView";
 
 const BlogPostContainer = connect(
   (state) => ({
-    currentArticle: "",
-    prevArticle: "",
-    nextArticle: "" 
+    currentPostId: "",
+    prevPostId: "",
+    nextPostId: "" 
   }),
   (dispatch, ownProps) => ({
-    goToPreviousArticle: () => dispatch(viewArticle(ownProps.prevArticle)),
-    goToNextArticle: () => dispatch(viewArticle(ownProps.nextArticle))
+    goToPreviousArticle: () => dispatch(actionCreators.moveToPrevPost(ownProps.prevPostId)),
+    goToNextArticle: () => dispatch(actionCreators.moveToNextPost(ownProps.nextPostId))
   })
 )(class extends React.Component {
   componentDidMount() {

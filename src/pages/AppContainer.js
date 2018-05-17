@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { initialize, initializationComplete } from "../actions/generalActions";
-import { searchByValue, searchByTags, setSelectedTags } from "../actions/sidebarActions";
+import { actionCreators as generalActionCreators } from "../actions/generalActions";
+import { actionCreators as sidebarActionCreators } from "../actions/sidebarActions";
 
 import AppView from "./AppView";
 
@@ -28,12 +28,12 @@ const AppContainer = connect(
     initialized: state.initialized,
     dataCache: state.dataCache
   }),
-  (dispatch) => ({
-    initialize: () => dispatch(initialize()),
-    initializationComplete: () => dispatch(initializationComplete()),
-    searchByValue: (val) => dispatch(searchByValue(val)),
-    searchByTags: (tags) => dispatch(searchByTags(tags)),
-    setSelectedTags: (selectedTags) => dispatch(setSelectedTags(selectedTags))
+  (dispatch, ownProps) => ({
+    initialize: () => dispatch(generalActionCreators.initialize()),
+    initializationComplete: () => dispatch(generalActionCreators.initializationComplete()),
+    searchByValue: () => dispatch(sidebarActionCreators.searchByValue(ownProps.searchValue)),
+    searchByTags: () => dispatch(sidebarActionCreators.searchByTags(ownProps.selectedTags)),
+    setSelectedTags: () => dispatch(sidebarActionCreators.setSelectedTags(ownProps.selectedTags))
   }),
   (state, dispatch, own) => ({
     ...state,
