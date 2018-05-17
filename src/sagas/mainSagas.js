@@ -2,7 +2,7 @@ import { call, put, takeEvery } from "redux-saga/effects";
 
 import { actionCreators as baseActionCreators } from "../reduxActions/baseActions";
 import { actionCreators } from "../reduxActions/generalActions";
-import {actionCreators as blogFeedActionCreators } from "../reduxActions/blogFeedActions";
+import { actionCreators as blogFeedActionCreators } from "../reduxActions/blogFeedActions";
 
 import dataApi from "../scripts/dataApi";
 
@@ -10,13 +10,8 @@ const api = dataApi();
 
 export function* initialize() {
   console.log("initialization sequence started");
-  try {
-
-    const quickLinks = yield call(api.getQuickLinks, null);
-    yield put(actionCreators.loadedQuickLinks(quickLinks));
-  } catch (error) {
-    yield put(baseActionCreators.setError("", error));
-  }
+  const quickLinks = yield call(api.getQuickLinks, null);
+  yield put(actionCreators.loadedQuickLinks(quickLinks));
 
   const archiveLinks = yield call(api.getArchiveLinks, null);
   yield put(actionCreators.loadedArchiveLinks(archiveLinks));
@@ -26,15 +21,14 @@ export function* initialize() {
 
   const posts = yield call(api.listBlogPosts, null);
   yield put(blogFeedActionCreators.loadedPosts(posts));
-  yield put({
-    type: "FETCHED_BLOG_POSTS",
-    payload: posts
-  });
 
   yield put({
     type: "INITIALIZE_END",
     payload: {
-
+      quickLinks,
+      archiveLinks,
+      tags,
+      posts
     }
   });
 }
