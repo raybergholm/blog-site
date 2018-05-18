@@ -7,10 +7,10 @@ import AppRouter from "../AppRouter";
 
 import "./App.css";
 
-const AppView = () => (
+const AppView = (props) => (
   <div>
     <Header />
-    <TwoColumnRightBody side={<Sidebar />}>
+    <TwoColumnRightBody side={<Sidebar {...props} />}>
       <AppRouter />
     </TwoColumnRightBody>
   </div>

@@ -7,13 +7,10 @@ import SearchPanel from "./sidebar/SearchPanel";
 
 import { StickyTop } from "./lib/bootstrap/react-bootstrap";
 
-import quickLinks from "../config/quickLinks.json";
-import archiveLinks from "../config/archiveLinks.json";
-
-const BlogSidebar = (props) => (
-  <menu data-sticky-container>
+const BlogSidebar = ({ quickLinks, archiveLinks, tags }) => (
+  <menu>
     <StickyTop>
-      <SearchPanel action={null} />
+      <SearchPanel action={null} tags={tags} />
       <QuickLinksMenu title="Quick Links" items={quickLinks} />
       <ArchiveMenu items={archiveLinks} />
     </StickyTop>
@@ -23,5 +20,7 @@ const BlogSidebar = (props) => (
 export default BlogSidebar;
 
 BlogSidebar.propTypes = {
-  props: PropTypes.object
+  archiveLinks: PropTypes.array,
+  quickLinks: PropTypes.array,
+  tags: PropTypes.array
 };

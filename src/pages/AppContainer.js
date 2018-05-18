@@ -26,7 +26,10 @@ const hooks = {
 
 const AppContainer = connect(
   (state) => ({
-    initialized: state.general.initialized
+    initialized: state.general.initialized,
+    quickLinks: state.general.quickLinks,
+    archiveLinks: state.general.archiveLinks,
+    tags: state.general.tags,
   }),
   (dispatch) => {
     const combinedActionCreators = Object.assign({}, generalActionCreators, sidebarActionCreators);
