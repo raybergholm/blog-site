@@ -41,7 +41,7 @@ const buildClassName = ({ vertical, tabs, pills, fill, justified, extras }) => {
 
 const Nav = ({ id, style, items, ...props }) => (
   <nav id={id || null} style={style || null} className={buildClassName(props)}>
-    {items.map((itemProperties, index) => (<NavLink key={index} {...itemProperties} />))}
+    {items && items.map((itemProperties, index) => (<NavLink key={index} {...itemProperties} />))}
   </nav>
 );
 export default Nav;
