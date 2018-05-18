@@ -63,9 +63,7 @@ export const reducer = (state = initialState, action) => {
       return Object.assign({}, state, action.payload);
     case actionTypes.InitializeEnd:
       return Object.assign({}, state, {
-        general: {
-          initialized: true
-        }
+        initialized: true
       });
     default:
       return state;
