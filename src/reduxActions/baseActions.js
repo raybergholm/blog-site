@@ -1,8 +1,8 @@
 export const actionTypes = {
   SetFlag: "SET_FLAG",
-  RemoveFlag: "REMOVE_FLAG",
+  ClearFlag: "CLEAR_FLAG",
   SetError: "SET_ERROR",
-  RemoveError: "REMOVE_Error"
+  ClearError: "CLEAR_ERROR"
 };
 
 export const actionCreators = {
@@ -13,8 +13,8 @@ export const actionCreators = {
       status
     }
   }),
-  removeFlag: (name) => ({
-    type: actionTypes.RemoveFlag,
+  clearFlag: (name) => ({
+    type: actionTypes.ClearFlag,
     payload: {
       name
     }
@@ -26,8 +26,8 @@ export const actionCreators = {
       error
     }
   }),
-  removeError: (name) => ({
-    type: actionTypes.RemoveError,
+  clearError: (name) => ({
+    type: actionTypes.ClearError,
     payload: {
       name
     }
@@ -45,7 +45,7 @@ export const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         flags: new Map([...Array.from(state.flags), [action.name, action.status]])
       });
-    case actionTypes.RemoveFlag: {
+    case actionTypes.ClearFlag: {
       const nextStateFlags = new Map(Array.from(state.flags));
       nextStateFlags.delete(action.name);
       return Object.assign({}, state, {
@@ -56,7 +56,7 @@ export const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         errors: new Map([...Array.from(state.errors), [action.name, action.error]])
       });
-    case actionTypes.RemoveError: {
+    case actionTypes.ClearError: {
       const nextStateErrors = new Map(Array.from(state.errors));
       nextStateErrors.delete(action.name);
       return Object.assign({}, state, {
