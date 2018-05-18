@@ -32,8 +32,11 @@ const initialState = {
 
 export const reducer = (state = initialState, action) => {
   switch (action.type){
-    case "LoadedPosts":
-      return Object.assign({}, state, ...action.payload);
+    case actionTypes.LoadedPosts:
+      console.log("LoadedPosts with ", action.payload);
+      console.log("prev state: ", state);
+      console.log("new state: ", Object.assign({}, state, action.payload));
+      return Object.assign({}, state, action.payload);
     default:
       return state;
   }

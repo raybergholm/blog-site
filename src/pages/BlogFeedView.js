@@ -5,7 +5,7 @@ import BlogPost from "../components/BlogPost";
 
 const displayBlogPosts = (blogPosts) => blogPosts.map((post) => <BlogPost key={post.postId} _id={post.postId} {...post.content} />);
 
-const FeedPage = ({posts}) => (
+const FeedPage = ({ posts }) => (
   <div id="main-content-section">
     {posts && posts.length > 0 && displayBlogPosts(posts)}
   </div>

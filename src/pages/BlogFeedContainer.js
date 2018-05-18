@@ -1,4 +1,5 @@
 import React from "react";
+import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
 import { actionCreators } from "../reduxActions/blogFeedActions";
@@ -8,6 +9,10 @@ import BlogFeedView from "./BlogFeedView";
 const createView = (ViewComponent, hooks) => class extends React.Component {
   componentDidMount() {
     // hooks.didMount && hooks.didMount(this.props);
+    console.log("blog feed did mount");
+  }
+  componentDidUpdate() {
+    console.log("blog feed did update");
   }
   render() {
     return <ViewComponent {...this.props} />;
@@ -20,12 +25,14 @@ const hooks = {
 
 const FeedContainer = connect(
   (state) => ({
-    feed: state.feed
+    posts: state.posts
   }),
-  (dispatch, ownProps) => ({
-    loadPosts: () => dispatch(actionCreators.loadPosts()),
-    readPost: () => dispatch(actionCreators.readPost(ownProps.postId))
-  }),
+  (dispatch) => {
+    const boundActions = bindActionCreators(actionCreators, dispatch);
+    return {
+      ...boundActions
+    };
+  },
   (state, dispatch, own) => ({
     ...state,
     ...own,

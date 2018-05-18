@@ -1,7 +1,7 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 
 import { actionCreators as baseActionCreators } from "../reduxActions/baseActions";
-import { actionCreators } from "../reduxActions/generalActions";
+import { actionCreators as generalActionCreators } from "../reduxActions/generalActions";
 import { actionCreators as blogFeedActionCreators } from "../reduxActions/blogFeedActions";
 
 import dataApi from "../scripts/dataApi";
@@ -10,16 +10,16 @@ const api = dataApi();
 
 export function* initialize() {
   console.log("initialization sequence started");
-  const quickLinks = yield call(api.getQuickLinks, null);
-  yield put(actionCreators.loadedQuickLinks(quickLinks));
+  const quickLinks = yield call(api.getQuickLinks);
+  yield put(generalActionCreators.loadedQuickLinks(quickLinks));
 
-  const archiveLinks = yield call(api.getArchiveLinks, null);
-  yield put(actionCreators.loadedArchiveLinks(archiveLinks));
+  const archiveLinks = yield call(api.getArchiveLinks);
+  yield put(generalActionCreators.loadedArchiveLinks(archiveLinks));
 
-  const tags = yield call(api.getTagList, null);
-  yield put(actionCreators.loadedTagList(tags));
+  const tags = yield call(api.getTagList);
+  yield put(generalActionCreators.loadedTagList(tags));
 
-  const posts = yield call(api.listBlogPosts, null);
+  const posts = yield call(api.listBlogPosts);
   yield put(blogFeedActionCreators.loadedPosts(posts));
 
   yield put({

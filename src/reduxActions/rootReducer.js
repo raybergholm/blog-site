@@ -8,11 +8,19 @@ import { reducer as sidebarReducer } from "./sidebarActions";
 
 const allReducers = {
   // throw in all the imported reducers
-  baseReducer,
-  generalReducer,
-  blogFeedReducer,
-  blogPostReducer,
-  sidebarReducer
+  base: baseReducer,
+  general: generalReducer,
+  blogFeed: blogFeedReducer,
+  blogPost: blogPostReducer,
+  sidebar: sidebarReducer
 };
 
-export default combineReducers(allReducers);
+console.log("generalReducer", generalReducer);
+
+console.log("allReducers", allReducers);
+
+const rootReducer = combineReducers(allReducers);
+
+console.log("rootReducer", rootReducer);
+
+export default rootReducer;

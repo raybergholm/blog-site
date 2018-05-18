@@ -2,7 +2,7 @@ export const actionTypes = {
   InitializeStart: "INITIALIZE_START",
   InitializeEnd: "INITIALIZE_END",
   LoadedQuickLinks: "LOADED_QUICK_LINKS",
-  LoadedArchiveLinks: "LOADED_QUICK_LINKS",
+  LoadedArchiveLinks: "LOADED_ARCHIVE_LINKS",
   LoadedTagList: "LOADED_TAG_LIST",
 };
 
@@ -29,15 +29,19 @@ export const actionCreators = {
     }
   }),
 
-  loadedTagList: (tagList) => {
-    const tags = tagList.map((tagName) => ({
-      tagName,
-      selected: false
-    }));
+  loadedTagList: (tags) => {
+    let tagsWithState = [];
+
+    if (tags) {
+      tagsWithState = tags.map((tagName) => ({
+        tagName,
+        selected: false
+      }));
+    }
     return {
       type: actionTypes.LoadedTagList,
       payload: {
-        tags
+        tags: tagsWithState
       }
     };
   },
@@ -52,11 +56,20 @@ const initialState = {
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.LoadedQuickLinks:
-      return Object.assign({}, state, ...action.payload);
+      console.log("LoadedQuickLinks with ", action.payload);
+      console.log("prev state: ", state);
+      console.log("new state: ", Object.assign({}, state, action.payload));
+      return Object.assign({}, state, action.payload);
     case actionTypes.LoadedArchiveLinks:
-      return Object.assign({}, state, ...action.payload);
+      console.log("LoadedArchiveLinks with ", action.payload);
+      console.log("prev state: ", state);
+      console.log("new state: ", Object.assign({}, state, action.payload));
+      return Object.assign({}, state, action.payload);
     case actionTypes.LoadedTagList:
-      return Object.assign({}, state, ...action.payload);
+      console.log("LoadedTagList with ", action.payload);
+      console.log("prev state: ", state);
+      console.log("new state: ", Object.assign({}, state, action.payload));
+      return Object.assign({}, state, action.payload);
     default:
       return state;
   }

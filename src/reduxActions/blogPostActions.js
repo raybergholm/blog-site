@@ -2,7 +2,8 @@ export const actionTypes = {
   MoveToPrevPost: "MOVE_TO_PREV_POST",
   MoveToNextPost: "MOVE_TO_NEXT_POST",
   LoadComments: "LOAD_COMMENTS",
-  PostComment: "POST_COMMENT"
+  PostComment: "POST_COMMENT",
+  LoadedComments: "LOADED_COMMENTS"
 };
 
 export const actionCreators = {
@@ -37,11 +38,12 @@ const initialState = {
 };
 
 export const reducer = (state = initialState, action) => {
-  switch (action.type){
-    case "VIEW_ARTICLE":
-      return Object.assign({}, state, {
-        currentArticle: action.targetArticle
-      });
+  switch (action.type) {
+    case actionTypes.MoveToPrevPost:
+    case actionTypes.MoveToNextPost:
+      return Object.assign({}, state, action.payload);
+    case actionTypes.LoadedComments:
+      return Object.assign({}, state, action.payload);
     default:
       return state;
   }

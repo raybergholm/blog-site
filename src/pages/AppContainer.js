@@ -1,4 +1,5 @@
 import React from "react";
+import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
 import { actionCreators as generalActionCreators } from "../reduxActions/generalActions";
@@ -28,13 +29,14 @@ const AppContainer = connect(
     initialized: state.initialized,
     dataCache: state.dataCache
   }),
-  (dispatch, ownProps) => ({
-    initialize: () => dispatch(generalActionCreators.initialize()),
-    initializationComplete: () => dispatch(generalActionCreators.initializationComplete()),
-    searchByValue: () => dispatch(sidebarActionCreators.searchByValue(ownProps.searchValue)),
-    searchByTags: () => dispatch(sidebarActionCreators.searchByTags(ownProps.selectedTags)),
-    setSelectedTags: () => dispatch(sidebarActionCreators.setSelectedTags(ownProps.selectedTags))
-  }),
+  (dispatch) => {
+    const combinedActionCreators = Object.assign({}, generalActionCreators, sidebarActionCreators);
+    console.log("combinedActionCreators", combinedActionCreators);
+    const boundActions = bindActionCreators(combinedActionCreators, dispatch);
+    return {
+      ...boundActions
+    };
+  },
   (state, dispatch, own) => ({
     ...state,
     ...own,

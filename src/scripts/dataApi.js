@@ -48,19 +48,22 @@ const DEFAULT_QUERY = buildQuery({
 const getArchiveLinks = async () => {
   const restPath = "public/blog/metadata/archive-links";
 
-  return await api.get({ restPath });
+  return await api.get({ restPath })
+    .then(({ body }) => body);
 };
 
 const getQuickLinks = async () => {
   const restPath = "public/blog/metadata/quick-links";
 
-  return await api.get({ restPath });
+  return await api.get({ restPath })
+    .then(({ body }) => body);
 };
 
 const getTagList = async () => {
   const restPath = "public/blog/metadata/tags";
 
-  return await api.get({ restPath });
+  return await api.get({ restPath })
+    .then(({ body }) => body);
 };
 
 const listBlogPosts = async ({ ...queryParams }) => {
@@ -84,7 +87,7 @@ const getBlogPost = async (postId) => {
 const dataApi = () => ({
   getArchiveLinks,
   getQuickLinks,
-  getTagList,  
+  getTagList,
   listBlogPosts,
   queryBlogPosts,
   getBlogPost
