@@ -71,17 +71,24 @@ const listBlogPosts = async ({ ...queryParams }) => {
 
   const query = queryParams ? buildQuery(queryParams) : DEFAULT_QUERY;
 
-  return await api.get({ restPath, query });
+  return await api.get({ restPath, query })
+    .then(({ body }) => body);
 };
 
-const queryBlogPosts = async () => {
+const queryBlogPosts = async ({ ...queryParams }) => {
+  const restPath = "public/blog";
 
+  const query = queryParams ? buildQuery(queryParams) : DEFAULT_QUERY;
+
+  return await api.get({ restPath, query })
+    .then(({ body }) => body);
 };
 
 const getBlogPost = async (postId) => {
   const restPath = `public/blog/${postId}`;
 
-  return await api.get({ restPath });
+  return await api.get({ restPath })
+    .then(({ body }) => body);
 };
 
 const dataApi = () => ({

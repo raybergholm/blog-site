@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import BlogPost from "../components/BlogPost";
 
-const displayBlogPosts = (blogPosts) => blogPosts.map((post) => <BlogPost key={post.postId} _id={post.postId} {...post.content} />);
+const displayBlogPosts = (blogPosts) => blogPosts.map((post) => <BlogPost key={post.postId} _id={post.postId} {...post} />);
 
 const FeedPage = ({ posts }) => (
   <div id="main-content-section">

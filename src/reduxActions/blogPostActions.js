@@ -34,7 +34,7 @@ export const actionCreators = {
 };
 
 const initialState = {
-  currentArticle: null,
+  postId: null,
 };
 
 export const reducer = (state = initialState, action) => {

@@ -26,12 +26,10 @@ const hooks = {
 
 const AppContainer = connect(
   (state) => ({
-    initialized: state.initialized,
-    dataCache: state.dataCache
+    initialized: state.general.initialized
   }),
   (dispatch) => {
     const combinedActionCreators = Object.assign({}, generalActionCreators, sidebarActionCreators);
-    console.log("combinedActionCreators", combinedActionCreators);
     const boundActions = bindActionCreators(combinedActionCreators, dispatch);
     return {
       ...boundActions

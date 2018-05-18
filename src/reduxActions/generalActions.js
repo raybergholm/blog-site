@@ -30,14 +30,15 @@ export const actionCreators = {
   }),
 
   loadedTagList: (tags) => {
+    // Post-processing: on the client side tags are also paired with a selected boolean to determine if they're being filtered 
     let tagsWithState = [];
-
     if (tags) {
       tagsWithState = tags.map((tagName) => ({
         tagName,
         selected: false
       }));
     }
+
     return {
       type: actionTypes.LoadedTagList,
       payload: {
@@ -48,6 +49,7 @@ export const actionCreators = {
 };
 
 const initialState = {
+  initialized: false,
   quickLinks: {},
   archiveLinks: {},
   tags: []
@@ -56,20 +58,15 @@ const initialState = {
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.LoadedQuickLinks:
-      console.log("LoadedQuickLinks with ", action.payload);
-      console.log("prev state: ", state);
-      console.log("new state: ", Object.assign({}, state, action.payload));
-      return Object.assign({}, state, action.payload);
     case actionTypes.LoadedArchiveLinks:
-      console.log("LoadedArchiveLinks with ", action.payload);
-      console.log("prev state: ", state);
-      console.log("new state: ", Object.assign({}, state, action.payload));
-      return Object.assign({}, state, action.payload);
     case actionTypes.LoadedTagList:
-      console.log("LoadedTagList with ", action.payload);
-      console.log("prev state: ", state);
-      console.log("new state: ", Object.assign({}, state, action.payload));
       return Object.assign({}, state, action.payload);
+    case actionTypes.InitializeEnd:
+      return Object.assign({}, state, {
+        general: {
+          initialized: true
+        }
+      });
     default:
       return state;
   }

@@ -25,7 +25,10 @@ const hooks = {
 
 const FeedContainer = connect(
   (state) => ({
-    posts: state.posts
+    flags: state.flags,
+    errors: state.errors,
+    posts: state.blogFeed.posts,
+    cache: state.blogFeed.cache
   }),
   (dispatch) => {
     const boundActions = bindActionCreators(actionCreators, dispatch);

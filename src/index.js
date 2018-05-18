@@ -19,6 +19,8 @@ const store = createStore(
   applyMiddleware(sagaMiddleware)
 );
 
+document.store = store;
+
 sagaMiddleware.run(mainSagas);
 
 render(

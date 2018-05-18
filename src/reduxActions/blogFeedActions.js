@@ -27,16 +27,19 @@ export const actionCreators = {
 };
 
 const initialState = {
-  searchCriteria: null,
+  posts: [],
+  cache: new Set()
 };
 
 export const reducer = (state = initialState, action) => {
-  switch (action.type){
-    case actionTypes.LoadedPosts:
-      console.log("LoadedPosts with ", action.payload);
-      console.log("prev state: ", state);
-      console.log("new state: ", Object.assign({}, state, action.payload));
-      return Object.assign({}, state, action.payload);
+  switch (action.type) {
+    case actionTypes.LoadedPosts: {
+      const newCache = new Set([...state.cache, ...action.payload]);
+      return Object.assign({}, state, {
+        posts: action.payload,
+        cache: newCache
+      });
+    }
     default:
       return state;
   }

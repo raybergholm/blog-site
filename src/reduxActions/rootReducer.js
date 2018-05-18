@@ -6,6 +6,8 @@ import { reducer as blogFeedReducer } from "./blogFeedActions";
 import { reducer as blogPostReducer } from "./blogPostActions";
 import { reducer as sidebarReducer } from "./sidebarActions";
 
+console.log("test", test);
+
 const allReducers = {
   // throw in all the imported reducers
   base: baseReducer,
