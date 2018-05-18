@@ -9,10 +9,6 @@ import BlogFeedView from "./BlogFeedView";
 const createView = (ViewComponent, hooks) => class extends React.Component {
   componentDidMount() {
     // hooks.didMount && hooks.didMount(this.props);
-    console.log("blog feed did mount");
-  }
-  componentDidUpdate() {
-    console.log("blog feed did update");
   }
   render() {
     return <ViewComponent {...this.props} />;

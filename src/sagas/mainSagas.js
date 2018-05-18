@@ -9,7 +9,6 @@ import dataApi from "../scripts/dataApi";
 const api = dataApi();
 
 export function* initialize() {
-  console.log("initialization sequence started");
   const quickLinks = yield call(api.getQuickLinks);
   yield put(generalActionCreators.loadedQuickLinks(quickLinks));
 
@@ -34,14 +33,12 @@ export function* initialize() {
 }
 
 export function* endInit() {
-  console.log("initialization sequence started");
+  console.log("initialization sequence finished");
   yield true;
 }
 
 export function* listBlogPosts() {
-  console.log("in listBlogPosts");
   try {
-
     const response = yield call(dataApi.listBlogPosts, {});
 
     yield response;

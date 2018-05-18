@@ -2,6 +2,7 @@ import React from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
+import { actionCreators as baseActionCreators } from "../reduxActions/baseActions";
 import { actionCreators as generalActionCreators } from "../reduxActions/generalActions";
 import { actionCreators as sidebarActionCreators } from "../reduxActions/sidebarActions";
 
@@ -26,13 +27,15 @@ const hooks = {
 
 const AppContainer = connect(
   (state) => ({
+    flags: state.base.flags,
+    errors: state.base.errors,
     initialized: state.general.initialized,
     quickLinks: state.general.quickLinks,
     archiveLinks: state.general.archiveLinks,
     tags: state.general.tags,
   }),
   (dispatch) => {
-    const combinedActionCreators = Object.assign({}, generalActionCreators, sidebarActionCreators);
+    const combinedActionCreators = Object.assign({}, baseActionCreators, generalActionCreators, sidebarActionCreators);
     const boundActions = bindActionCreators(combinedActionCreators, dispatch);
     return {
       ...boundActions
