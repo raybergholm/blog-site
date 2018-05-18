@@ -35,8 +35,7 @@ export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.LoadedPosts: {
       const newCache = new Set([...state.cache, ...action.payload]);
-      return Object.assign({}, state, {
-        posts: action.payload,
+      return Object.assign({}, state, action.payload, {
         cache: newCache
       });
     }

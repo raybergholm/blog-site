@@ -50,8 +50,8 @@ export const actionCreators = {
 
 const initialState = {
   initialized: false,
-  quickLinks: {},
-  archiveLinks: {},
+  quickLinks: [],
+  archiveLinks: [],
   tags: []
 };
 
