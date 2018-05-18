@@ -43,7 +43,8 @@ export default Alert;
 Alert.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.object,
-    PropTypes.array
+    PropTypes.array,
+    PropTypes.string
   ]),
   dismissable: PropTypes.bool,
   id: PropTypes.string,

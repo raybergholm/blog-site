@@ -30,7 +30,8 @@ export default Jumbotron;
 Jumbotron.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.object,
-    PropTypes.array
+    PropTypes.array,
+    PropTypes.string
   ]),
   fluid: PropTypes.bool,
   id: PropTypes.string,

@@ -28,7 +28,8 @@ export default Container;
 Container.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.object,
-    PropTypes.array
+    PropTypes.array,
+    PropTypes.string
   ]),
   id: PropTypes.string,
   style: PropTypes.object

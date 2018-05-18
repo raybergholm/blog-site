@@ -42,7 +42,8 @@ export default Badge;
 Badge.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.object,
-    PropTypes.array
+    PropTypes.array,
+    PropTypes.string
   ]),
   id: PropTypes.string,
   link: PropTypes.string,
