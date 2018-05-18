@@ -59,7 +59,7 @@ const getQuickLinks = async () => {
     .then(({ body }) => body);
 };
 
-const getTagList = async () => {
+const getTags = async () => {
   const restPath = "public/blog/metadata/tags";
 
   return await api.get({ restPath })
@@ -94,7 +94,7 @@ const getBlogPost = async (postId) => {
 const dataApi = () => ({
   getArchiveLinks,
   getQuickLinks,
-  getTagList,
+  getTags,
   listBlogPosts,
   queryBlogPosts,
   getBlogPost

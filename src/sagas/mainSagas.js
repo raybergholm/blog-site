@@ -15,7 +15,7 @@ export function* initialize() {
   const archiveLinks = yield call(api.getArchiveLinks);
   yield put(generalActionCreators.loadedArchiveLinks(archiveLinks));
 
-  const tags = yield call(api.getTagList);
+  const tags = yield call(api.getTags);
   yield put(generalActionCreators.loadedTagList(tags));
 
   const posts = yield call(api.listBlogPosts);
