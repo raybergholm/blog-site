@@ -8,13 +8,11 @@ import SearchPanel from "./sidebar/SearchPanel";
 import { StickyTop } from "./lib/bootstrap/react-bootstrap";
 
 const BlogSidebar = ({ quickLinks, archiveLinks, tags }) => (
-  <menu>
-    <StickyTop>
-      <SearchPanel action={null} tags={tags} />
-      <QuickLinksMenu title="Quick Links" items={quickLinks} />
-      <ArchiveMenu items={archiveLinks} />
-    </StickyTop>
-  </menu>
+  <StickyTop>
+    <SearchPanel action={null} tags={tags} />
+    <QuickLinksMenu title="Quick Links" items={quickLinks} />
+    <ArchiveMenu items={archiveLinks} />
+  </StickyTop>
 );
 
 export default BlogSidebar;

@@ -1,4 +1,4 @@
-import mimisbrunnrApiInterface from "./mimisbrunnrApiInterface";
+import restApiInterface from "./restApiInterface";
 
 import { devStage } from "../config/configs";
 
@@ -19,7 +19,7 @@ export const ORDER = {
   Descending: "DESC"
 };
 
-const api = mimisbrunnrApiInterface(DATA_API_URL, API_KEY);
+const restApi = restApiInterface(DATA_API_URL, API_KEY);
 
 /**
  * Only allow specific valid params to pass through
@@ -48,21 +48,21 @@ const DEFAULT_QUERY = buildQuery({
 const getArchiveLinks = async () => {
   const restPath = "public/blog/metadata/archive-links";
 
-  return await api.get({ restPath })
+  return await restApi.get({ restPath })
     .then(({ body }) => body);
 };
 
 const getQuickLinks = async () => {
   const restPath = "public/blog/metadata/quick-links";
 
-  return await api.get({ restPath })
+  return await restApi.get({ restPath })
     .then(({ body }) => body);
 };
 
 const getTags = async () => {
   const restPath = "public/blog/metadata/tags";
 
-  return await api.get({ restPath })
+  return await restApi.get({ restPath })
     .then(({ body }) => body);
 };
 
@@ -71,7 +71,18 @@ const listBlogPosts = async ({ ...queryParams }) => {
 
   const query = queryParams ? buildQuery(queryParams) : DEFAULT_QUERY;
 
-  return await api.get({ restPath, query })
+  return await restApi.get({ restPath, query })
+    .then(({ body }) => body);
+};
+
+const fetchBlogByYearMonth = async({ year, month, ...queryParams }) => {
+  const key = `${year}-${month}`;
+
+  const restPath = "public/blog/${key}";
+
+  const query = queryParams ? buildQuery(queryParams) : DEFAULT_QUERY;
+
+  return await restApi.get({ restPath, query })
     .then(({ body }) => body);
 };
 
@@ -80,14 +91,14 @@ const queryBlogPosts = async ({ ...queryParams }) => {
 
   const query = queryParams ? buildQuery(queryParams) : DEFAULT_QUERY;
 
-  return await api.get({ restPath, query })
+  return await restApi.get({ restPath, query })
     .then(({ body }) => body);
 };
 
 const getBlogPost = async (postId) => {
   const restPath = `public/blog/${postId}`;
 
-  return await api.get({ restPath })
+  return await restApi.get({ restPath })
     .then(({ body }) => body);
 };
 
