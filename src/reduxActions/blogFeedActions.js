@@ -1,3 +1,5 @@
+import BlogPost from "../models/BlogPost";
+
 export const actionTypes = {
   ReadPost: "READ_POST",
   LoadPosts: "LOAD_POSTS",
@@ -34,7 +36,8 @@ const initialState = {
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.LoadedPosts: {
-      const newCache = new Set([...state.cache, ...action.payload]);
+      const newPosts = action.payload.map((entry) => new BlogPost(entry));
+      const newCache = new Set([...state.cache, ...newPosts]);
       return Object.assign({}, state, action.payload, {
         cache: newCache
       });
