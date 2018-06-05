@@ -1,16 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import Showdown from "showdown";
+
 const ARTICLE_ROOT_URL = "/blog/post";
 
-const BlogQuickView = ({ restUrl, title, timestamp, author, tags, summary }) => {
+const converter = new Showdown.Converter({
+  headerLevelStart: 3,
+  requireSpaceBeforeHeadingText: true,
+  strikethrough: true,
+  tasklists: true
+});
+
+const parseText = (text) => converter.makeHtml(text);
+
+const BlogQuickView = ({ restUrl, title, timestamp, author, summary }) => {
+  const blogPostUrl = `${ARTICLE_ROOT_URL}/${restUrl}`;
   return (
     <article id={`blog-post-${restUrl}`}>
-      <h2><a href={`${ARTICLE_ROOT_URL}/${restUrl}`}>{title}</a></h2>
+      <h2><a href={blogPostUrl}>{title}</a></h2>
       <p>{timestamp} | <strong>{author}</strong></p>
-      <div>
-        <p>{summary}</p>
-      </div>
+      <div dangerouslySetInnerHTML={{ __html: parseText(summary) }} />
+      <a href={blogPostUrl}>Read More...</a>
       <hr />
     </article>
   );

@@ -11,7 +11,9 @@ const DEFAULTS = {
 
 class BlogPost {
   constructor(params) {
-    const { title, author, summary, body, yearMonthKey, publishDate, restUrlKey, tags } = params;
+    const { title, author, body, yearMonthKey, publishDate, restUrlKey, tags } = params;
+
+    const summary = body.substring(0, 100);
 
     this.title = title || DEFAULTS.Title;
     this.author = author || DEFAULTS.Author;
