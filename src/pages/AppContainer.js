@@ -2,9 +2,9 @@ import React from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
-import { actionCreators as baseActionCreators } from "../reduxActions/baseActions";
-import { actionCreators as generalActionCreators } from "../reduxActions/generalActions";
-import { actionCreators as sidebarActionCreators } from "../reduxActions/sidebarActions";
+import baseActionCreators from "../redux/actionCreators/base";
+import generalActionCreators from "../redux/actionCreators/general";
+import sidebarActionCreators from "../redux/actionCreators/sidebar";
 
 import AppView from "./AppView";
 

@@ -2,7 +2,7 @@ import React from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
-import { actionCreators } from "../reduxActions/blogFeedActions";
+import actionCreators from "../redux/actionCreators/blogFeed";
 
 import BlogFeedView from "./BlogFeedView";
 
