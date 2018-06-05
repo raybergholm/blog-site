@@ -4,7 +4,7 @@ const initialState = {
   postId: null,
 };
 
-export const reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.MoveToPrevPost:
     case actionTypes.MoveToNextPost:
@@ -15,3 +15,5 @@ export const reducer = (state = initialState, action) => {
       return state;
   }
 };
+
+export default reducer;

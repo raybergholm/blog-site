@@ -7,7 +7,7 @@ const initialState = {
   cache: new Set()
 };
 
-export const reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.LoadedPosts: {
       const newPosts = action.payload.map((entry) => new BlogPost(entry));
@@ -20,3 +20,5 @@ export const reducer = (state = initialState, action) => {
       return state;
   }
 };
+
+export default reducer;

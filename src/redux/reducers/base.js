@@ -5,7 +5,7 @@ const initialState = {
   errors: new Map()
 };
 
-export const reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SetFlag:
       return Object.assign({}, state, {
@@ -33,3 +33,5 @@ export const reducer = (state = initialState, action) => {
       return state;
   }
 };
+
+export default reducer;

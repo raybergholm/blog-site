@@ -7,7 +7,7 @@ const initialState = {
   }
 };
 
-export const reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SearchByValue:
       return Object.assign({}, state, action.payload);
@@ -17,3 +17,5 @@ export const reducer = (state = initialState, action) => {
       return state;
   }
 };
+
+export default reducer;

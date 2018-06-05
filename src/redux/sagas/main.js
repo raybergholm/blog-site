@@ -1,8 +1,8 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 
-import { actionCreators as baseActionCreators } from "../actions/baseActions";
-import { actionCreators as generalActionCreators } from "../actions/generalActions";
-import { actionCreators as blogFeedActionCreators } from "../actions/blogFeedActions";
+import baseActionCreators from "../actionCreators/base";
+import generalActionCreators from "../actionCreators/general";
+import blogFeedActionCreators from "../actionCreators/blogFeed";
 
 import dataApi from "../../scripts/dataApi";
 
