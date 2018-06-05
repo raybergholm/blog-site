@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import BlogPost from "../components/BlogPost";
+import BlogQuickView from "../components/BlogQuickView";
 
-const displayBlogPosts = (blogPosts) => blogPosts.map((post) => <BlogPost key={post.postId} _id={post.postId} {...post} />);
+const displayBlogPosts = (blogPosts) => blogPosts.map((post) => <BlogQuickView key={post.postId} _id={post.postId} {...post} />);
 
 const FeedPage = ({ posts }) => (
   <div id="main-content-section">
