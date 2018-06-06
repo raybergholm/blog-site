@@ -10,7 +10,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.LoadedMetadata:
+    case actionTypes.LoadedMetadata: 
       return Object.assign({}, state, action.payload);
     case actionTypes.InitializeEnd:
       return Object.assign({}, state, {

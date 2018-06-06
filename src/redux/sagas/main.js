@@ -13,8 +13,8 @@ export function* initialize() {
   yield put(generalActionCreators.loadedMetadata(metadata));
 
   let posts;
-  if (metadata && metadata.latestKey){
-    posts = yield call(api.fetchPage, metadata.latestKey);
+  if (metadata && metadata.config && metadata.config.latestKey){
+    posts = yield call(api.fetchPage, metadata.config.latestKey);
     yield put(blogFeedActionCreators.loadedPosts(posts));
   }
 

@@ -13,7 +13,7 @@ class BlogPost {
   constructor(params) {
     const { title, author, body, yearMonthKey, publishDate, restUrlKey, tags } = params;
 
-    const summary = body.substring(0, 100);
+    const summary = body.substring(0, 200);
 
     this.title = title || DEFAULTS.Title;
     this.author = author || DEFAULTS.Author;

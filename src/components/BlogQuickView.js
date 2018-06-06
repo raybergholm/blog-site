@@ -14,12 +14,12 @@ const converter = new Showdown.Converter({
 
 const parseText = (text) => converter.makeHtml(text);
 
-const BlogQuickView = ({ restUrl, title, timestamp, author, summary }) => {
+const BlogQuickView = ({ restUrl, title, publishDate, author, summary }) => {
   const blogPostUrl = `${ARTICLE_ROOT_URL}/${restUrl}`;
   return (
     <article id={`blog-post-${restUrl}`}>
       <h2><a href={blogPostUrl}>{title}</a></h2>
-      <p>{timestamp} | <strong>{author}</strong></p>
+      <p>{publishDate} | <strong>{author}</strong></p>
       <div dangerouslySetInnerHTML={{ __html: parseText(summary) }} />
       <a href={blogPostUrl}>Read More...</a>
       <hr />
@@ -32,7 +32,7 @@ BlogQuickView.propTypes = {
   author: PropTypes.string.isRequired,
   summary: PropTypes.string.isRequired,
   tags: PropTypes.arrayOf(PropTypes.string),
-  timestamp: PropTypes.string.isRequired,
+  publishDate: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired
 };
 

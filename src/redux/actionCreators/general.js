@@ -9,37 +9,26 @@ const actionCreators = {
     type: actionTypes.InitializeEnd
   }),
 
-  loadedQuickLinks: (quickLinks) => ({
-    type: actionTypes.LoadedQuickLinks,
-    payload: {
-      quickLinks
-    }
-  }),
-
-  loadedArchiveLinks: (archiveLinks) => ({
-    type: actionTypes.LoadedArchiveLinks,
-    payload: {
-      archiveLinks
-    }
-  }),
-
-  loadedTagList: (tags) => {
+  loadedMetadata: ({ quickLinks, archiveLinks, tags, config }) => {
     // Post-processing: on the client side tags are also paired with a selected boolean to determine if they're being filtered 
-    let tagsWithState = [];
+    let tagsWithState = []; 
     if (tags) {
       tagsWithState = tags.map((tagName) => ({
         tagName,
         selected: false
       }));
     }
-
+    
     return {
-      type: actionTypes.LoadedTagList,
+      type: actionTypes.LoadedMetadata,
       payload: {
-        tags: tagsWithState
+        quickLinks,
+        archiveLinks,
+        tags: tagsWithState,
+        config
       }
     };
-  },
+  }
 };
 
 export default actionCreators;

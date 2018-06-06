@@ -10,11 +10,10 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.LoadedPosts: {
-      const newPosts = action.payload.map((entry) => new BlogPost(entry));
+      const newPosts = action.payload.posts.map((entry) => new BlogPost(entry));
       const newCache = new Set([...state.cache, ...newPosts]);
-      return Object.assign({}, state, action.payload, {
-        cache: newCache
-      });
+      
+      return Object.assign({}, state, { posts: newPosts }, { cache: newCache });
     }
     default:
       return state;

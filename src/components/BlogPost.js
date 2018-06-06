@@ -16,11 +16,11 @@ const converter = new Showdown.Converter({
 
 const parseText = (text) => converter.makeHtml(text);
 
-const BlogPost = ({ restUrl, title, timestamp, author, tags, body }) => {
+const BlogPost = ({ restUrl, title, publishDate, author, tags, body }) => {
   return (
     <article id={`blog-post-${restUrl}`}>
       <h2><a href={`${ARTICLE_ROOT_URL}/${restUrl}`}>{title}</a></h2>
-      <p>{timestamp} | <strong>{author}</strong></p>
+      <p>{publishDate} | <strong>{author}</strong></p>
       <div dangerouslySetInnerHTML={{ __html: parseText(body) }} />
       <div>
         <small>Tags:</small>
@@ -36,7 +36,7 @@ BlogPost.propTypes = {
   author: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   tags: PropTypes.arrayOf(PropTypes.string),
-  timestamp: PropTypes.string.isRequired,
+  publishDate: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired
 };
 

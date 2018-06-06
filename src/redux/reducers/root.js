@@ -15,12 +15,6 @@ const allReducers = {
   sidebar: sidebarReducer
 };
 
-console.log("generalReducer", generalReducer);
-
-console.log("allReducers", allReducers);
-
 const rootReducer = combineReducers(allReducers);
-
-console.log("rootReducer", rootReducer);
 
 export default rootReducer;
