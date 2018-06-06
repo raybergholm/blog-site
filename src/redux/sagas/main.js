@@ -9,24 +9,19 @@ import dataApi from "../../scripts/dataApi";
 const api = dataApi();
 
 export function* initialize() {
-  const quickLinks = yield call(api.getQuickLinks);
-  yield put(generalActionCreators.loadedQuickLinks(quickLinks));
+  const metadata = yield call(api.getMetadata);
+  yield put(generalActionCreators.loadedMetadata(metadata));
 
-  const archiveLinks = yield call(api.getArchiveLinks);
-  yield put(generalActionCreators.loadedArchiveLinks(archiveLinks));
-
-  const tags = yield call(api.getTags);
-  yield put(generalActionCreators.loadedTagList(tags));
-
-  const posts = yield call(api.listBlogPosts);
-  yield put(blogFeedActionCreators.loadedPosts(posts));
+  let posts;
+  if (metadata && metadata.latestKey){
+    posts = yield call(api.fetchPage, metadata.latestKey);
+    yield put(blogFeedActionCreators.loadedPosts(posts));
+  }
 
   yield put({
     type: "INITIALIZE_END",
     payload: {
-      quickLinks,
-      archiveLinks,
-      tags,
+      metadata,
       posts
     }
   });
