@@ -4,14 +4,13 @@ const initialState = {
   initialized: false,
   quickLinks: [],
   archiveLinks: [],
-  tags: []
+  tags: [],
+  config: {}
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.LoadedQuickLinks:
-    case actionTypes.LoadedArchiveLinks:
-    case actionTypes.LoadedTagList:
+    case actionTypes.LoadedMetadata:
       return Object.assign({}, state, action.payload);
     case actionTypes.InitializeEnd:
       return Object.assign({}, state, {
