@@ -1,7 +1,7 @@
 import actionTypes from "../actionTypes/blogPost";
 
 const initialState = {
-  postId: null,
+  postUrl: null,
 };
 
 const reducer = (state = initialState, action) => {

@@ -4,8 +4,6 @@ import { devStage } from "../config/configs";
 
 const DATA_API_URL = `https://${devStage.restApiId}.execute-api.${devStage.awsRegion}.amazonaws.com/${devStage.restApiStage}`;
 
-const API_KEY = "Y7Db5PmJ28WG4Yew9cve4jPdNnC1VthaNtDobGda";
-
 export const FIELDS = {
   Date: "Date"
 };
@@ -18,6 +16,11 @@ export const ORDER = {
   Ascending: "ASC",
   Descending: "DESC"
 };
+
+const API_KEY = process.env.REACT_APP_API_KEY;
+if (!API_KEY) {
+  console.error("API key missing!");
+}
 
 const restApi = restApiInterface(DATA_API_URL, API_KEY);
 
